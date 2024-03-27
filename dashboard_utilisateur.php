@@ -5,10 +5,29 @@ require_once('bdd.php');
 // Effectuer la requête SQL pour sélectionner tous les utilisateurs
 $stmt = $bdd->query("SELECT * FROM utilisateur");
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialisation de la session
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: login.php");
+    exit;
+}
+
+// Vérifier si l'utilisateur est un administrateur
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    // Rediriger l'utilisateur vers la page d'accueil s'il n'est pas un administrateur
+    header("Location: index.php");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +36,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
+
 <body>
     <div class="sidebar">
         <h2>Menu</h2>
@@ -64,7 +84,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $user): ?>
+                    <?php foreach ($users as $user) : ?>
                         <tr>
                             <td><?php echo $user['id_utilisateur']; ?></td>
                             <td><?php echo $user['Nom']; ?></td>
@@ -93,7 +113,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $stmt2 = $bdd->query("SELECT * FROM utilisateur WHERE valide = 0");
                     $users2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
                     ?>
-                    <?php foreach ($users2 as $user2): ?>
+                    <?php foreach ($users2 as $user2) : ?>
                         <tr>
                             <td><?php echo $user2['id_utilisateur']; ?></td>
                             <td><?php echo $user2['Nom']; ?></td>
@@ -102,7 +122,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td>
                                 <!-- Bouton "Ajouter" -->
                                 <button onclick="ajouterUtilisateur(<?php echo $user2['id_utilisateur']; ?>)">Ajouter</button>
-                                
+
                                 <!-- Bouton "Supprimer" -->
                                 <button onclick="supprimerUtilisateur(<?php echo $user2['id_utilisateur']; ?>)">Supprimer</button>
                             </td>
@@ -124,7 +144,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $user): ?>
+                    <?php foreach ($users as $user) : ?>
                         <tr>
                             <td><?php echo $user['id_utilisateur']; ?></td>
                             <td><?php echo $user['Nom']; ?></td>
@@ -158,48 +178,49 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     }
                 };
                 xhr.send("userId=" + userId);
-            }  
+            }
         }
 
         // Fonction pour ajouter un utilisateur
-    function ajouterUtilisateur(userId) {
-        if (confirm("Êtes-vous sûr de vouloir ajouter cet utilisateur ?")) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajouterutilisateur.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // Actualiser la page après l'ajout
-                        window.location.reload();
-                    } else {
-                        console.error(xhr.responseText);
+        function ajouterUtilisateur(userId) {
+            if (confirm("Êtes-vous sûr de vouloir ajouter cet utilisateur ?")) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "ajouterutilisateur.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Actualiser la page après l'ajout
+                            window.location.reload();
+                        } else {
+                            console.error(xhr.responseText);
+                        }
                     }
-                }
-            };
-            xhr.send("userId=" + userId);
+                };
+                xhr.send("userId=" + userId);
+            }
         }
-    }
 
-    // Fonction pour supprimer un utilisateur
-    function supprimerUtilisateur(userId) {
-        if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "supprimerutilisateur.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // Actualiser la page après la suppression
-                        window.location.reload();
-                    } else {
-                        console.error(xhr.responseText);
+        // Fonction pour supprimer un utilisateur
+        function supprimerUtilisateur(userId) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "supprimerutilisateur.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Actualiser la page après la suppression
+                            window.location.reload();
+                        } else {
+                            console.error(xhr.responseText);
+                        }
                     }
-                }
-            };
-            xhr.send("userId=" + userId);
+                };
+                xhr.send("userId=" + userId);
+            }
         }
-    }
     </script>
 </body>
+
 </html>

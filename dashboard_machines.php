@@ -1,3 +1,13 @@
+<?php
+// Inclure la connexion à la base de données
+include "bdd.php";
+
+// Récupérer toutes les machines de la base de données
+$sql = "SELECT * FROM machines";
+$stmt = $bdd->query($sql);
+$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,32 +89,27 @@
             </form>
         </div>
 
-        <div id="tableau" class="hidden">
+        <div id="tableau">
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
+                        <th>Image</th>
+                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="afficherFormulaireModifier(5, 'Dupont', 'Marie', 'marie.dupont@example.com')">
-                        <td>5</td>
-                        <td>Dupont</td>
-                        <td>Marie</td>
-                        <td>marie.dupont@example.com</td>
-                        <td><button class="accept-button" onclick="accepterUtilisateur()">Accepter</button> <button class="reject-button" onclick="refuserUtilisateur()">Refuser</button></td>
-                    </tr>
-                    <tr onclick="afficherFormulaireModifier(6, 'Leclerc', 'Luc', 'luc.leclerc@example.com')">
-                        <td>6</td>
-                        <td>Leclerc</td>
-                        <td>Luc</td>
-                        <td>luc.leclerc@example.com</td>
-                        <td><button class="accept-button" onclick="accepterUtilisateur()">Accepter</button> <button class="reject-button" onclick="refuserUtilisateur()">Refuser</button></td>
-                    </tr>
+                    <?php foreach ($machines as $machine) : ?>
+                        <tr>
+                            <td><?php echo $machine['id_machines']; ?></td>
+                            <td><?php echo $machine['Titre']; ?></td>
+                            <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
+                            <td><?php echo $machine['Description']; ?></td>
+                            <td><button onclick="afficherFormulaireModifier(<?php echo $machine['id_machines']; ?>, '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
