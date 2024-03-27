@@ -110,6 +110,7 @@ if (isset($_SESSION['user_id'])) {
             <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image">
             <!-- Titre -->
             <h3 class="p-2 text-center">Plotter VersaStudio BN-20</h3>
+            <p class="mb-5">Pour imprimer et découper sur différents types de papier.</p>
             <!-- Bouton -->
             <div class="mt-auto mb-4">
               <a href="machine.php" class="btn-card">
@@ -124,6 +125,7 @@ if (isset($_SESSION['user_id'])) {
             <img src="assets/img/imprimante-3d-raise3d-n2-plus.jpg" alt="" class="custom-image">
             <!-- Titre -->
             <h3 class="p-2 text-center">Imprimante 3D Raise3D N2 Plus</h3>
+            <p class="mb-5">Pour imprimer vos objets en 3 dimensions en grand format.</p>
             <!-- Bouton -->
             <div class="mt-auto mb-4">
               <a href="machine.php" class="btn-card">
@@ -138,6 +140,7 @@ if (isset($_SESSION['user_id'])) {
             <img src="assets/img/imprimante-3d-zortrax-m200.jpg" alt="" class="custom-image">
             <!-- Titre -->
             <h3 class="p-2 text-center">Imprimante 3D Zortrax M200</h3>
+            <p class="mb-5">Pour imprimer vos objets en 3 dimensions.</p>
             <!-- Bouton -->
             <div class="mt-auto mb-4">
               <a href="machine.php" class="btn-card">
