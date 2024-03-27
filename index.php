@@ -67,7 +67,7 @@ if (isset($_SESSION['user_id'])) {
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
           <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-          <li><a class="nav-link scrollto" href="contact.php">Camion</a></li>
+          <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
