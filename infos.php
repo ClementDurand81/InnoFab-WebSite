@@ -156,7 +156,7 @@ if (isset($_SESSION['user_id'])) {
             Ces ateliers sont à destination des écoliers, enfants, étudiants, demandeurs d’emploi, personnes âgées… Ils permettent à chacun, quel que soit son niveau, de découvrir ou redécouvrir son pouvoir de création !</h3>
           <div class="row mx-5">
             <div class="col-md-6">
-              <div class="p-5">
+              <div class="p-5 mx-5">
                 <h3>Atelier de fabrication d’une main myoélectrique</h3>
                 <ul>
                   <li>Modélisation et impression 3D TinkerCad/Zortrax</li>
@@ -189,7 +189,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
           <div class="row mx-5">
             <div class="col-md-6">
-              <div class="p-5">
+              <div class="p-5 mx-5">
                 <h3>Atelier de programmation</h3>
                 <ul>
                   <li>Scratch</li>
@@ -222,7 +222,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
           <div class="row mx-5">
             <div class="col-md-6">
-              <div class="p-5">
+              <div class="p-5 mx-5">
                 <h3>Atelier vectorisation et découpe au laser</h3>
                 <ul>
                   <li>Trotec speedy 400</li>
