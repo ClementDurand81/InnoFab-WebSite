@@ -1,0 +1,385 @@
+body {
+    font-family:  "Nunito", sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #4a4a4a;
+    color: #ffffff;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+
+.user-actions {
+    margin-top: auto;
+}
+
+.user-actions a {
+    color: #ffffff;
+    background-color: #ff0000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.user-actions a:hover {
+    background-color: #ff0000;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-container:first-child {
+    margin-bottom: 20px;
+}
+
+.card {
+    flex: 1;
+    min-width: 300px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #333;
+    align-self: flex-start;
+}
+
+.card-content {
+    position: relative;
+}
+
+.chart-container {
+    max-width: 100%;
+    max-height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.stat-chart-container {
+    height: 400px;
+}
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.options-container label {
+    margin: 0 20px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.options-container label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.options-container label .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.options-container label .checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.options-container label input:checked + .checkmark {
+    background-color: #333;
+    border-color: #333;
+}
+
+.options-container label:hover .checkmark {
+    background-color: #ddd;
+}
+
+.options-container label input:checked + .checkmark::after {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#tableau {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+#tableau2 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tableau2 thead {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#tableau2 th,
+#tableau2 td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#tableau2 tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tableau2 tbody tr:hover {
+    background-color: #ddd;
+}
+
+#tableau2 td:last-child {
+    text-align: center;
+}
+
+#tableau2 button {
+    padding: 8px 16px;
+    background-color: #474747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#tableau2 .accept-button,
+#tableau2 .reject-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#tableau2 .accept-button:hover {
+    background-color: #00ff0d;
+}
+
+#tableau2 .reject-button:hover {
+    background-color: #ff0000;
+}
+
+
+/* CSS pour le tableau3 */
+
+#tableau3 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tableau3 thead {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#tableau3 th,
+#tableau3 td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#tableau3 tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tableau3 tbody tr:hover {
+    background-color: #ddd;
+}
+
+#tableau3 td:last-child {
+    text-align: center;
+}
+
+#tableau3 button {
+    padding: 8px 16px;
+    background-color: #c9500a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#tableau3 button:hover {
+    background-color: #ff0000;
+}
+
+#formulaire form {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#formulaire form div {
+    margin-bottom: 30px;
+}
+
+#formulaire form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#formulaire form input[type="text"],
+#formulaire form input[type="file"],
+#formulaire form textarea {
+    width: calc(100% - 22px);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#formulaire form textarea {
+    height: 150px;
+}
+
+#formulaire form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+}
+
+#formulaire form button[type="submit"]:hover {
+    background-color: #555;
+}
