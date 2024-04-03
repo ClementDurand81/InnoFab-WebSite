@@ -7,7 +7,6 @@ $sql = "SELECT * FROM machines";
 $stmt = $bdd->query($sql);
 $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,23 +17,6 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <script>
-        // Récupérer l'URL actuelle de la page
-        var currentURL = window.location.href;
-
-        // Vérifier si l'URL contient un paramètre de succès
-        var urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success')) {
-            var success = urlParams.get('success');
-            if (success === 'true') {
-                // Afficher la popup de succès
-                alert('Machine ajoutée avec succès !');
-            } else {
-                // Afficher la popup d'erreur
-                alert('Erreur lors de l\'ajout de la machine.');
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -89,8 +71,9 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </div>
 
-        <div id="tableau">
-            <table>
+        <!-- Structure HTML pour le tableau -->
+        <div id="tableau" class="hidden">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -107,12 +90,24 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $machine['Titre']; ?></td>
                             <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
                             <td><?php echo $machine['Description']; ?></td>
-                            <td><button onclick="afficherFormulaireModifier(<?php echo $machine['id_machines']; ?>, '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
+                            <td><button class="btn btn-primary" onclick="afficherFormulaireModifier('<?php echo $machine['id_machines']; ?>', '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
+
+        <!-- Structure HTML pour la carte pop-up -->
+        <div id="popupForm" class="popup hidden">
+            <div class="popup-content">
+                <div id="formulaireModifier" class="hidden">
+                    <!-- Le formulaire sera injecté ici -->
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay hidden"></div>
+
 
         <div id="tableau2" class="hidden">
             <table>
