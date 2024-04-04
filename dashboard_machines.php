@@ -6,6 +6,24 @@ include "bdd.php";
 $sql = "SELECT * FROM machines";
 $stmt = $bdd->query($sql);
 $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialisation de la session
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: login.php");
+    exit;
+}
+
+// Vérifier si l'utilisateur est un administrateur
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    // Rediriger l'utilisateur vers la page d'accueil s'il n'est pas un administrateur
+    header("Location: index.php");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
