@@ -139,20 +139,15 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>5</td>
-                        <td>Dupont</td>
-                        <td>Marie</td>
-                        <td>marie.dupont@example.com</td>
-                        <td><button onclick="supprimerUtilisateur()">Supprimer</button></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Leclerc</td>
-                        <td>Luc</td>
-                        <td>luc.leclerc@example.com</td>
-                        <td><button onclick="supprimerUtilisateur()">Supprimer</button></td>
-                    </tr>
+                    <?php foreach ($machines as $machine) : ?>
+                        <tr>
+                            <td><?php echo $machine['id_machines']; ?></td>
+                            <td><?php echo $machine['Titre']; ?></td>
+                            <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
+                            <td><?php echo $machine['Description']; ?></td>
+                            <td><button onclick="supprimerMachine(<?php echo $machine['id_machines']; ?>)">Supprimer</button></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

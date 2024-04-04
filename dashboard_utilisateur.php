@@ -3,7 +3,7 @@
 require_once('bdd.php');
 
 // Effectuer la requête SQL pour sélectionner tous les utilisateurs
-$stmt = $bdd->query("SELECT * FROM utilisateur");
+$stmt = $bdd->query("SELECT * FROM utilisateur WHERE valide = 1");
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Initialisation de la session
@@ -159,68 +159,6 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     </div>
 
     <script src="assets/js/dashboard_utilisateur.js"></script>
-
-    <script>
-        function supprimerUtilisateur(userId) {
-            if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
-                // Envoi d'une requête AJAX pour supprimer l'utilisateur
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "supprimerutilisateur.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Actualiser la page après la suppression
-                            window.location.reload();
-                        } else {
-                            console.error(xhr.responseText);
-                        }
-                    }
-                };
-                xhr.send("userId=" + userId);
-            }
-        }
-
-        // Fonction pour ajouter un utilisateur
-        function ajouterUtilisateur(userId) {
-            if (confirm("Êtes-vous sûr de vouloir ajouter cet utilisateur ?")) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "ajouterutilisateur.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Actualiser la page après l'ajout
-                            window.location.reload();
-                        } else {
-                            console.error(xhr.responseText);
-                        }
-                    }
-                };
-                xhr.send("userId=" + userId);
-            }
-        }
-
-        // Fonction pour supprimer un utilisateur
-        function supprimerUtilisateur(userId) {
-            if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "supprimerutilisateur.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Actualiser la page après la suppression
-                            window.location.reload();
-                        } else {
-                            console.error(xhr.responseText);
-                        }
-                    }
-                };
-                xhr.send("userId=" + userId);
-            }
-        }
-    </script>
 </body>
 
 </html>

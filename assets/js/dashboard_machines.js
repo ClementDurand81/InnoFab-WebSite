@@ -123,3 +123,23 @@ function sauvegarderModification() {
   };
   xhr.send(formData); // Envoyer les données du formulaire avec FormData
 }
+
+// Fonction pour supprimer une machine
+function supprimerMachine(machineID) {
+  if (confirm("Êtes-vous sûr de vouloir supprimer cette machine ?")) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "supprimermachine.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          // Actualiser la page après la suppression
+          window.location.reload();
+        } else {
+          console.error(xhr.responseText);
+        }
+      }
+    };
+    xhr.send("machineID=" + machineID);
+  }
+}
