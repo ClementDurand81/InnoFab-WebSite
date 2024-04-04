@@ -288,6 +288,28 @@ tbody tr:hover {
     background-color: #ff0000;
 }
 
+/* Style du bouton Modifier */
+.btn-modifier {
+    padding: 10px 20px; /* Taille légèrement augmentée */
+    background-color: #007bff; /* Nouvelle couleur de fond (bleu vif) */
+    color: white; /* Couleur du texte */
+    border: none;
+    border-radius: 6px; /* Légèrement plus arrondi */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Effet au survol */
+  .btn-modifier:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
+  /* Effet de transition */
+  .btn-modifier:focus {
+    outline: none; /* Supprimer la bordure au focus */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Ajouter une ombre au focus */
+  }
+  
 
 /* CSS pour le tableau3 */
 
@@ -388,6 +410,7 @@ tbody tr:hover {
 
 .card {
     max-width: 600px;
+    min-width: 700px;
     margin: auto;
     padding: 20px;
     border: 2px solid #ccc;
@@ -464,9 +487,9 @@ textarea.form-control {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999; /* Assurez-vous que le z-index est plus élevé que celui du reste du contenu */
-    width: 70%; /* Ajustez la largeur selon vos besoins */
-    max-width: 600px; /* Ajoutez une largeur maximale pour une meilleure expérience utilisateur */
+    z-index: 9999;
+    width: 80%;
+    max-width: 600px;
 }
 
 .overlay {

@@ -90,7 +90,7 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $machine['Titre']; ?></td>
                             <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
                             <td><?php echo $machine['Description']; ?></td>
-                            <td><button class="btn btn-primary" onclick="afficherFormulaireModifier('<?php echo $machine['id_machines']; ?>', '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
+                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo $machine['id_machines']; ?>', '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
