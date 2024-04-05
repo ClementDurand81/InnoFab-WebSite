@@ -29,10 +29,10 @@ Le site web d'Innofab est conçu pour offrir une expérience utilisateur fluide 
 Nous accueillons favorablement les contributions de la communauté pour améliorer et faire évoluer le site web d'Innofab. Si vous souhaitez contribuer, veuillez suivre ces étapes :
 
 1. Forkez le dépôt et clonez-le localement.
-2. Créez une branche pour votre contribution (`git checkout -b DevClement`).
+2. Créez une branche pour votre contribution (`git checkout -b "votre-branche"`).
 3. Faites vos modifications et testez-les localement.
 4. Committez vos modifications (`git commit -am 'Description de vos modifications'`).
-5. Poussez votre branche sur votre fork (`git push origin DevClement`).
+5. Poussez votre branche sur votre fork (`git push origin "votre-branche"`).
 6. Ouvrez une pull request vers la branche `DevClement` du dépôt principal.
 
 ---
