@@ -1,30 +1,33 @@
 <?php
 // Inclure la connexion à la base de données
-include "bdd.php";
-
-// Récupérer toutes les machines de la base de données
-$sql = "SELECT * FROM machines";
-$stmt = $bdd->query($sql);
-$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Initialisation de la session
-session_start();
+include "../Serveur/bdd.php";
 
 // Vérifier si l'utilisateur est connecté
+session_start();
 if (!isset($_SESSION['user_id'])) {
     // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit;
 }
 
 // Vérifier si l'utilisateur est un administrateur
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     // Rediriger l'utilisateur vers la page d'accueil s'il n'est pas un administrateur
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 
+// Récupérer toutes les machines de la base de données
+$sql = "SELECT * FROM machines";
+$stmt = $bdd->query($sql);
+if ($stmt === false) {
+    // Erreur lors de l'exécution de la requête SQL
+    http_response_code(500);
+    exit("Erreur lors de la récupération des données des machines.");
+}
+$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,21 +37,21 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     <title>Machines</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 
 <body>
     <div class="sidebar">
         <h2>Menu</h2>
         <ul>
-            <li><a href="index.php"><i class="fas fa-home"></i> Site</a></li>
+            <li><a href="../index.php"><i class="fas fa-home"></i> Site</a></li>
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="dashboard_utilisateur.php"><i class="fas fa-user"></i> Utilisateur</a></li>
             <li><a href="dashboard_blog.php"><i class="fas fa-blog"></i> Blog</a></li>
             <li><a href="dashboard_machines.php"><i class="fas fa-server"></i> Machines</a></li>
         </ul>
         <div class="user-actions">
-            <a href="deconnexion.php">Se déconnecter</a>
+            <a href="../Serveur/deconnexion.php">Se déconnecter</a>
         </div>
     </div>
 
@@ -72,7 +75,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
         </div>
         <br>
         <div id="formulaire" class="hidden">
-            <form action="ajouter_machine.php" method="POST" enctype="multipart/form-data">
+            <form action="../Serveur/ajouter_machine.php" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="nom">Nom de la machine:</label>
                     <input type="text" id="nom" name="nom" required>
@@ -104,11 +107,11 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                 <tbody>
                     <?php foreach ($machines as $machine) : ?>
                         <tr>
-                            <td><?php echo $machine['id_machines']; ?></td>
-                            <td><?php echo $machine['Titre']; ?></td>
-                            <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
-                            <td><?php echo $machine['Description']; ?></td>
-                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo $machine['id_machines']; ?>', '<?php echo $machine['Titre']; ?>', '<?php echo $machine['Image']; ?>', '<?php echo $machine['Description']; ?>')">Modifier</button></td>
+                            <td><?php echo htmlspecialchars($machine['id_machines']); ?></td>
+                            <td><?php echo htmlspecialchars($machine['Titre']); ?></td>
+                            <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($machine['Description']); ?></td>
+                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($machine['id_machines']); ?>', '<?php echo htmlspecialchars($machine['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image']); ?>', '<?php echo htmlspecialchars($machine['Description']); ?>')">Modifier</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -141,18 +144,18 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
                 <tbody>
                     <?php foreach ($machines as $machine) : ?>
                         <tr>
-                            <td><?php echo $machine['id_machines']; ?></td>
-                            <td><?php echo $machine['Titre']; ?></td>
-                            <td><img src="<?php echo $machine['Image']; ?>" alt="<?php echo $machine['Titre']; ?>" style="width: 100px;"></td>
-                            <td><?php echo $machine['Description']; ?></td>
-                            <td><button onclick="supprimerMachine(<?php echo $machine['id_machines']; ?>)">Supprimer</button></td>
+                            <td><?php echo htmlspecialchars($machine['id_machines']); ?></td>
+                            <td><?php echo htmlspecialchars($machine['Titre']); ?></td>
+                            <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($machine['Description']); ?></td>
+                            <td><button onclick="supprimerMachine(<?php echo htmlspecialchars($machine['id_machines']); ?>)">Supprimer</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
-    <script src="assets/js/dashboard_machines.js"></script>
+    <script src="../assets/js/dashboard_machines.js"></script>
 </body>
 
 </html>

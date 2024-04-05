@@ -22,7 +22,7 @@ function afficherTableauSupprimer() {
 function afficherPopup() {
   var popup = document.getElementById("popupForm");
   if (popup) {
-    popup.classList.remove("hidden"); // Utilisez remove pour supprimer la classe hidden
+    popup.classList.remove("hidden");
     overlay.classList.remove("hidden");
   } else {
     console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
@@ -32,12 +32,13 @@ function afficherPopup() {
 function fermerPopup() {
   var popup = document.getElementById("popupForm");
   if (popup) {
-    popup.classList.add("hidden"); // Utilisez add pour ajouter la classe hidden
+    popup.classList.add("hidden");
     overlay.classList.add("hidden");
   } else {
     console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
   }
 }
+
 // Variable globale pour stocker l'image sélectionnée
 var nouvelleImage;
 
@@ -51,7 +52,9 @@ function afficherFormulaireModifier(id, nom, image, description) {
           <div class="card-body">
               <div class="form-group">
                   <label for="titreMachine">Titre de la machine:</label>
-                  <input type="text" class="form-control" id="titreMachine" name="titre" value="${nom}" required>
+                  <input type="text" class="form-control" id="titreMachine" name="titre" value="${escapeHTML(
+                    nom
+                  )}" required>
               </div>
               <div class="form-group">
                   <label for="nouvelleImage">Nouvelle Image:</label>
@@ -59,9 +62,13 @@ function afficherFormulaireModifier(id, nom, image, description) {
               </div>
               <div class="form-group">
                   <label for="nouvelleDescription">Nouvelle Description:</label>
-                  <textarea class="form-control" id="nouvelleDescription" name="description" rows="4" required>${description}</textarea>
+                  <textarea class="form-control" id="nouvelleDescription" name="description" rows="4" required>${escapeHTML(
+                    description
+                  )}</textarea>
               </div>
-              <input type="hidden" id="id_machine" name="id_machine" value="${id}">
+              <input type="hidden" id="id_machine" name="id_machine" value="${escapeHTML(
+                id
+              )}">
               <button type="button" class="btn btn-primary" onclick="sauvegarderModification()">Sauvegarder</button>
               <button type="button" class="btn btn-danger" onclick="fermerPopup()">Fermer</button>
           </div>
@@ -111,7 +118,7 @@ function sauvegarderModification() {
 
   // Envoyer les données du formulaire via XMLHttpRequest
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "modifier_machine.php");
+  xhr.open("POST", "../Serveur/modifier_machine.php");
   xhr.onload = function () {
     if (xhr.status === 200) {
       console.log("Modification réussie");
@@ -128,7 +135,7 @@ function sauvegarderModification() {
 function supprimerMachine(machineID) {
   if (confirm("Êtes-vous sûr de vouloir supprimer cette machine ?")) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "supprimermachine.php", true);
+    xhr.open("POST", "../Serveur/supprimermachine.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -142,4 +149,14 @@ function supprimerMachine(machineID) {
     };
     xhr.send("machineID=" + machineID);
   }
+}
+
+// Fonction pour échapper les caractères HTML
+function escapeHTML(html) {
+  return html
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

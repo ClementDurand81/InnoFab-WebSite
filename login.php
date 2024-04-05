@@ -27,7 +27,7 @@
 
   <!-- Register Section -->
   <section id="register" class="background d-flex align-items-center">
-    <form class="container form-container" action="confirmlogin.php" method="post">
+    <form class="container form-container" action="Serveur/confirmlogin.php" method="post">
       <img src="assets\img\logo.png" class="logo-login" alt="Logo">
       <div class="form-group">
         <label class="form-label" for="email">Email</label>

@@ -1,21 +1,30 @@
 <?php
 // Inclure la connexion à la base de données
-include "bdd.php";
+require_once "bdd.php";
 
 // Vérifier si les données du formulaire sont envoyées via la méthode POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Récupérer les données du formulaire
-    $id_machine = $_POST["id_machine"];
-    $nouveauTitre = $_POST["nouveauTitre"];
-    $nouvelleDescription = $_POST["nouvelleDescription"];
+    // Filtrer et échapper les données du formulaire
+    $id_machine = filter_input(INPUT_POST, 'id_machine', FILTER_VALIDATE_INT);
+    $nouveauTitre = filter_input(INPUT_POST, 'nouveauTitre', FILTER_SANITIZE_SPECIAL_CHARS);
+    $nouvelleDescription = filter_input(INPUT_POST, 'nouvelleDescription', FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Vérifier si un fichier a été téléchargé
     if (!empty($_FILES["image"]["name"])) {
         // Récupérer les informations sur le fichier téléchargé
-        $nomFichier = $_FILES["image"]["name"];
+        $nomFichier = basename($_FILES["image"]["name"]);
         $nouvelleImageTemp = $_FILES["image"]["tmp_name"];
-        $cheminDestination = "assets/img/imgMachines/" . $nomFichier;
+        $cheminDestination = "../assets/img/imgMachines/" . $nomFichier;
+
+        // Vérifier le type de fichier pour éviter les attaques par téléversement
+        $extensionsAutorisees = array("jpg", "jpeg", "png", "gif");
+        $extensionFichier = strtolower(pathinfo($cheminDestination, PATHINFO_EXTENSION));
+        if (!in_array($extensionFichier, $extensionsAutorisees)) {
+            http_response_code(400);
+            echo json_encode(array("message" => "Extension de fichier non autorisée"));
+            exit;
+        }
 
         // Déplacer le fichier téléchargé vers le dossier de destination
         if (move_uploaded_file($nouvelleImageTemp, $cheminDestination)) {
@@ -31,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Aucun fichier n'a été téléchargé, garder l'image existante
         $nouvelleImage = null;
     }
-    
+
     // Effectuer les modifications dans la base de données
     $sql = "UPDATE machines SET Titre = :titre, Description = :description";
     // Ajouter la colonne de l'image uniquement si une nouvelle image a été téléchargée
@@ -46,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($nouvelleImage !== null) {
         $stmt->bindParam(":image", $nouvelleImage);
     }
-    $stmt->bindParam(":id", $id_machine);
+    $stmt->bindParam(":id", $id_machine, PDO::PARAM_INT); // Préciser le type de données
 
     // Exécuter la requête
     if ($stmt->execute()) {
@@ -63,4 +72,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     http_response_code(400);
     echo json_encode(array("message" => "Requête invalide"));
 }
-?>
