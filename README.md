@@ -1,5 +1,5 @@
+Site Web de Innofab
 
-README - Site Web de Innofab
 Bienvenue sur le dépôt GitHub du site web d'Innofab ! Ce projet vise à créer un site web qui respecte la charte graphique et intègre les fonctionnalités nécessaires pour répondre aux besoins de notre entreprise.
 
 Aperçu
