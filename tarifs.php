@@ -62,9 +62,9 @@ if (isset($_SESSION['user_id'])) {
       <nav class="navbar">
         <ul class="d-flex justify-content-center">
           <li><a class="nav-link scrollto" href="index.php">Accueil</a></li>
-          <li><a class="nav-link scrollto active" href="nos-machines.php">Machines</a></li>
+          <li><a class="nav-link scrollto" href="nos-machines.php">Machines</a></li>
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
-          <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
+          <li><a class="nav-link scrollto active" href="tarifs.php">Tarifs</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
           <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
           <?php
@@ -99,53 +99,58 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="section-header section-header-title background-custom-3 d-flex align-items-center">
+  <section class="section-header section-header-card background d-flex align-items-center">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 text-center">Nos machines</h5>
+      <h5 class="mt-5 text-center">Adhésion</h5>
       <hr class="horizontal-line">
-      <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
+      <div class="card-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image">
             <!-- Titre -->
-            <h3 class="p-2 text-center">Plotter VersaStudio BN-20</h3>
-            <p class="mb-5">Pour imprimer et découper sur différents types de papier.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+            <h3 class="p-2 text-left">Moins de 25 ans</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+                <h6 class="text-center">10 €</h6>
+                <h3 class="mt-4">/ ans</h3>
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-raise3d-n2-plus.jpg" alt="" class="custom-image">
             <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Raise3D N2 Plus</h3>
-            <p class="mb-5">Pour imprimer vos objets en 3 dimensions en grand format.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+            <h3 class="text-center">Plus de 25</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+                <h6 class="text-center">20 €</h6>
+                <h3 class="mt-4">/ ans</h3>
+            </div>
+          </div>
+        </div> 
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center">
+            <!-- Titre -->
+            <h3 class="text-center">Famille</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+                <h6 class="text-center">30 €</h6>
+                <h3 class="mt-4">/ ans</h3>
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-zortrax-m200.jpg" alt="" class="custom-image">
             <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Zortrax M200</h3>
-            <p class="mb-5">Pour imprimer vos objets en 3 dimensions.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+            <h3 class="text-center">Organismes</h3>
+            <hr class="horizontal-line-card">
+            <h3 class="p-2 text-center">moins de 10 salariés</h3>
+            <div class="d-flex align-items-center">
+                <h6 class="text-center">50 €</h6>
+                <h3 class="mt-4">/ ans</h3>
+            </div>
+            <h3 class="p-2 text-center">plus de 10 salariés</h3>
+            <div class="d-flex align-items-center">
+                <h6 class="text-center">100 €</h6>
+                <h3 class="mt-4">/ ans</h3>
             </div>
           </div>
         </div>
