@@ -164,10 +164,9 @@ if(isset($_GET['id'])) {
         <div class="col-2 footer-links">
           <h4>Publications</h4>
           <ul>
-            <li><a href="nos-machine.php">Nos machines</a></li>
+            <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -175,6 +174,7 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">

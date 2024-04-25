@@ -166,7 +166,6 @@ if (isset($_SESSION['user_id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -174,6 +173,7 @@ if (isset($_SESSION['user_id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -206,7 +206,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
   </footer>
-
+  
   <?php
   if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
     echo "<script>alert('Inscription réussie !');</script>";
