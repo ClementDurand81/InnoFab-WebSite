@@ -36,6 +36,10 @@ if(isset($_GET['id'])) {
       $titre = $machine['Titre'];
       $description = $machine['Description'];
       $image = $machine['Image'];
+      
+      // Incrémente le nombre de vues pour cette machine
+      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
+      $stmt->execute(array(':id' => $machineId));
   } else {
       // Redirige vers une page d'erreur si la machine n'existe pas
       header("Location: erreur.php");

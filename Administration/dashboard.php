@@ -1,20 +1,37 @@
 <?php
 // Initialisation de la session
 session_start();
-
+require_once('../Serveur/bdd.php');
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
-    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: ../login.php");
-    exit;
+  // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+  header("Location: ../login.php");
+  exit;
 }
 
 // Vérifier si l'utilisateur est un administrateur
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-    // Rediriger l'utilisateur vers la page d'accueil s'il n'est pas un administrateur
-    header("Location: ../index.php");
-    exit;
+  // Rediriger l'utilisateur vers la page d'accueil s'il n'est pas un administrateur
+  header("Location: ../index.php");
+  exit;
 }
+
+$stmt = $bdd->query("SELECT Titre, Vues_Machine FROM Machines");
+$machinesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialiser les tableaux pour les étiquettes et les valeurs
+$dataLabelsMachines = [];
+$dataValuesMachines = [];
+
+// Remplir les tableaux avec les données récupérées
+foreach ($machinesData as $machine) {
+  $dataLabelsMachines[] = $machine['Titre'];
+  $dataValuesMachines[] = $machine['Vues_Machine'];
+}
+
+// Convertir les tableaux en JSON pour une utilisation dans JavaScript
+$dataLabelsMachinesJson = json_encode($dataLabelsMachines);
+$dataValuesMachinesJson = json_encode($dataValuesMachines);
 
 $nombre_de_connexions = 100;
 $nombre_d_inscrits = 50;
@@ -26,8 +43,6 @@ $dataValues = [12, 19, 3, 17, 7, 3, 22];
 $dataLabelsBlogs = ['Blog1', 'Blog 2', 'Blog 3', 'Blog 4', 'Blog 5'];
 $dataValuesBlogs = [100, 200, 150, 300, 250];
 
-$dataLabelsMachines = ['Machine 1', 'Machine 2', 'Machine 3', 'Machine 4', 'Machine 5'];
-$dataValuesMachines = [500, 600, 700, 800, 900];
 ?>
 
 <!DOCTYPE html>
@@ -123,8 +138,8 @@ $dataValuesMachines = [500, 600, 700, 800, 900];
     var nombre_d_inscrits_en_attente = <?php echo $nombre_d_inscrits_en_attente; ?>;
     var dataLabels = <?php echo json_encode($dataLabels); ?>;
     var dataValues = <?php echo json_encode($dataValues); ?>;
-    var dataLabelsMachines = <?php echo json_encode($dataLabelsMachines); ?>;
-    var dataValuesMachines = <?php echo json_encode($dataValuesMachines); ?>;
+    var dataLabelsMachines = <?php echo $dataLabelsMachinesJson; ?>;
+    var dataValuesMachines = <?php echo $dataValuesMachinesJson; ?>;
     var dataLabelsBlogs = <?php echo json_encode($dataLabelsBlogs); ?>;
     var dataValuesBlogs = <?php echo json_encode($dataValuesBlogs); ?>;
   </script>
