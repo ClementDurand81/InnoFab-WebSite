@@ -45,14 +45,6 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <style>
-    /* Style pour ajuster la hauteur de la section principale en fonction du nombre de cartes */
-    .main-section {
-      min-height: calc(100vh - 200px); /* Hauteur minimale de la section principale, ajustez selon vos besoins */
-    }
-  </style>
-
 </head>
 
 <body>
@@ -108,11 +100,12 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="background align-items-center main-section">
+  <section class="background-custom3 align-items-center main-section">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
       <h5 class="mt-5 text-center">Nos machines</h5>
       <hr class="horizontal-line">
-      <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
+      <!-- Ajoutez une classe pour cibler cette div -->
+      <div class="card-grid mt-5 section-content" data-aos="fade-up" data-aos-delay="600">
         <?php foreach ($machines as $machine) : ?>
           <div class="card">
             <div class="card-body d-flex flex-column align-items-center">
@@ -132,73 +125,74 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
   </section>
-  
-<!-- Footer -->
-<footer id="footer" class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-12 footer-info">
-        <p>Innofab est financé par l'Union Européenne dans le cadre du Fond feder</p>
-        <a class="logo d-flex align-items-center justify-content-center">
-          <img src="assets/img/ue.jpg" alt="">
-          <img src="assets/img/occitanie.png" alt="">
-          <img src="assets/img/europesengage.jpg" alt="">
-          <img src="assets/img/mit.png" alt="">
-        </a>
-      </div>
-      <div class="col-2 footer-links">
-        <h4>Publications</h4>
-        <ul>
-          <li><a href="nos-machine.php">Nos machines</a></li>
-          <li><a href="notre-camion.php">Notre camion</a></li>
-          <li><a href="blog.php">Blog</a></li>
-          <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
-        </ul>
-      </div>
-      <div class="col-2 footer-links">
-        <h4>Innofab</h4>
-        <ul>
-          <li><a href="tarifs.php">Nos tarifs</a></li>
-          <li><a href="contact.php">Nous contacter</a></li>
-        </ul>
-      </div>
-      <div class="col-2 footer-links">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="cgu.php">CGU</a></li>
-          <li><a href="mentions-legales.php">Mentions légales</a></li>
-          <li><a href="politique-de-confidentialite.php">Politique de confidentialité</a></li>
-        </ul>
-      </div>
-      <div class="row footer-bottom">
-        <div class="col-auto align-self-center">
-          <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <p>Innofab est financé par l'Union Européenne dans le cadre du Fond feder</p>
+          <a class="logo d-flex align-items-center justify-content-center">
+            <img src="assets/img/ue.jpg" alt="">
+            <img src="assets/img/occitanie.png" alt="">
+            <img src="assets/img/europesengage.jpg" alt="">
+            <img src="assets/img/mit.png" alt="">
+          </a>
         </div>
-        <div class="col-auto align-self-center">
-          <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
+        <div class="col-2 footer-links">
+          <h4>Publications</h4>
+          <ul>
+            <li><a href="nos-machine.php">Nos machines</a></li>
+            <li><a href="notre-camion.php">Notre camion</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
+          </ul>
         </div>
-        <div class="col align-self-center">
-          <p><i class="bi bi-telephone"></i> : 07.49.10.60.31</p>
+        <div class="col-2 footer-links">
+          <h4>Innofab</h4>
+          <ul>
+            <li><a href="tarifs.php">Nos tarifs</a></li>
+            <li><a href="contact.php">Nous contacter</a></li>
+          </ul>
         </div>
-        <div class="col-auto ml-auto">
-          <div class="social-links">
-            <a href="https://www.facebook.com/innofabcastres" class="social-link facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://discord.com/invite/nTcpBuD" class="social-link discord"><i class="bi bi-discord"></i></a>
-            <a href="https://www.instagram.com/fablab_innofab" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+        <div class="col-2 footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="cgu.php">CGU</a></li>
+            <li><a href="mentions-legales.php">Mentions légales</a></li>
+            <li><a href="politique-de-confidentialite.php">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+        <div class="row footer-bottom">
+          <div class="col-auto align-self-center">
+            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+          </div>
+          <div class="col-auto align-self-center">
+            <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
+          </div>
+          <div class="col align-self-center">
+            <p><i class="bi bi-telephone"></i> : 07.49.10.60.31</p>
+          </div>
+          <div class="col-auto ml-auto">
+            <div class="social-links">
+              <a href="https://www.facebook.com/innofabcastres" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://discord.com/invite/nTcpBuD" class="social-link discord"><i class="bi bi-discord"></i></a>
+              <a href="https://www.instagram.com/fablab_innofab" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-</footer>
+  </footer>
 
-<!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
