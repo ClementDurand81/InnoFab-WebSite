@@ -1,7 +1,10 @@
 <?php
-// Vérifie si l'utilisateur est connecté
 session_start();
-require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('Serveur/bdd.php');
+
+// Récupérer les machines depuis la base de données
+$stmt = $bdd->query("SELECT * FROM Machines");
+$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -42,7 +45,6 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -69,7 +71,7 @@ if (isset($_SESSION['user_id'])) {
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -81,9 +83,9 @@ if (isset($_SESSION['user_id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -98,56 +100,32 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="background d-flex align-items-center">
+  <section class="background-custom3 align-items-center main-section">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
       <h5 class="mt-5 text-center">Nos machines</h5>
       <hr class="horizontal-line">
-      <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Plotter VersaStudio BN-20</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+      <!-- Ajoutez une classe pour cibler cette div -->
+      <div class="card-grid mt-5 section-content" data-aos="fade-up" data-aos-delay="600">
+        <?php foreach ($machines as $machine) : ?>
+          <div class="card">
+            <div class="card-body d-flex flex-column align-items-center">
+              <!-- Image -->
+              <img src="../<?php echo $machine['Image']; ?>" alt="" class="custom-image">
+              <!-- Titre -->
+              <h3 class="p-2 text-center"><?php echo $machine['Titre']; ?></h3>
+              <!-- Bouton -->
+              <div class="mt-auto mb-4">
+                <a href="machine.php?id=<?php echo $machine['id_machines']; ?>" class="btn-card">
+                  <span>En savoir plus</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-raise3d-n2-plus.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Raise3D N2 Plus</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-zortrax-m200.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Zortrax M200</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -165,10 +143,9 @@ if (isset($_SESSION['user_id'])) {
         <div class="col-2 footer-links">
           <h4>Publications</h4>
           <ul>
-            <li><a href="nos-machine.php">Nos machines</a></li>
+            <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -176,6 +153,7 @@ if (isset($_SESSION['user_id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -215,7 +193,6 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

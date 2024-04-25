@@ -1,7 +1,7 @@
 <?php
 // Vérifie si l'utilisateur est connecté
 session_start();
-require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id'])) {
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -82,9 +82,9 @@ if (isset($_SESSION['user_id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -166,7 +166,6 @@ if (isset($_SESSION['user_id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -174,6 +173,7 @@ if (isset($_SESSION['user_id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -206,7 +206,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
   </footer>
-
+  
   <?php
   if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
     echo "<script>alert('Inscription réussie !');</script>";

@@ -288,6 +288,28 @@ tbody tr:hover {
     background-color: #ff0000;
 }
 
+/* Style du bouton Modifier */
+.btn-modifier {
+    padding: 10px 20px; /* Taille légèrement augmentée */
+    background-color: #007bff; /* Nouvelle couleur de fond (bleu vif) */
+    color: white; /* Couleur du texte */
+    border: none;
+    border-radius: 6px; /* Légèrement plus arrondi */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Effet au survol */
+  .btn-modifier:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
+  /* Effet de transition */
+  .btn-modifier:focus {
+    outline: none; /* Supprimer la bordure au focus */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Ajouter une ombre au focus */
+  }
+  
 
 /* CSS pour le tableau3 */
 
@@ -344,7 +366,7 @@ tbody tr:hover {
 }
 
 #formulaire form div {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #formulaire form label {
@@ -357,10 +379,11 @@ tbody tr:hover {
 #formulaire form input[type="file"],
 #formulaire form textarea {
     width: calc(100% - 22px);
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
 #formulaire form textarea {
@@ -370,16 +393,111 @@ tbody tr:hover {
 #formulaire form button[type="submit"] {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #333;
+    padding: 12px;
+    background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 18px;
+    margin-top: 20px;
 }
 
 #formulaire form button[type="submit"]:hover {
-    background-color: #555;
+    background-color: #0056b3;
+}
+
+.card {
+    max-width: 600px;
+    min-width: 700px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea.form-control {
+    height: 150px;
+}
+
+.card .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.card .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.card .btn-danger {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.card .btn-danger:hover {
+    background-color: #b30000;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 80%;
+    max-width: 600px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente pour l'effet de flou */
+    z-index: 9998; /* Z-index inférieur à celui de la popup pour la placer en dessous */
 }

@@ -20,6 +20,14 @@
   background-size: cover;
 }
 
+.background-custom3{
+  min-height: 100vh;
+  height: 100%;
+  background: url(../img/background.jpg) top center no-repeat;
+  background-size: cover;
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #000000;
@@ -254,6 +262,10 @@ section {
   padding: 10px;
   font-weight: 500;
   color: #000000;
+}
+
+.section-content {
+  margin-bottom: 100px; /* Ajustez cette valeur selon vos besoins */
 }
 
 /*--------------------------------------------------------------
