@@ -1,7 +1,10 @@
 <?php
-// Vérifie si l'utilisateur est connecté
 session_start();
-require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('Serveur/bdd.php');
+
+// Récupérer les machines depuis la base de données
+$stmt = $bdd->query("SELECT * FROM Machines");
+$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -42,6 +45,13 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Style pour ajuster la hauteur de la section principale en fonction du nombre de cartes */
+    .main-section {
+      min-height: calc(100vh - 200px); /* Hauteur minimale de la section principale, ajustez selon vos besoins */
+    }
+  </style>
 
 </head>
 
@@ -98,122 +108,97 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="background d-flex align-items-center">
+  <section class="background align-items-center main-section">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
       <h5 class="mt-5 text-center">Nos machines</h5>
       <hr class="horizontal-line">
       <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Plotter VersaStudio BN-20</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+        <?php foreach ($machines as $machine) : ?>
+          <div class="card">
+            <div class="card-body d-flex flex-column align-items-center">
+              <!-- Image -->
+              <img src="../<?php echo $machine['Image']; ?>" alt="" class="custom-image">
+              <!-- Titre -->
+              <h3 class="p-2 text-center"><?php echo $machine['Titre']; ?></h3>
+              <!-- Bouton -->
+              <div class="mt-auto mb-4">
+                <a href="machine.php?id=<?php echo $machine['id_machines']; ?>" class="btn-card">
+                  <span>En savoir plus</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-raise3d-n2-plus.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Raise3D N2 Plus</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-zortrax-m200.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Zortrax M200</h3>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer id="footer" class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 col-md-12 footer-info">
-          <p>Innofab est financé par l'Union Européenne dans le cadre du Fond feder</p>
-          <a class="logo d-flex align-items-center justify-content-center">
-            <img src="assets/img/ue.jpg" alt="">
-            <img src="assets/img/occitanie.png" alt="">
-            <img src="assets/img/europesengage.jpg" alt="">
-            <img src="assets/img/mit.png" alt="">
-          </a>
+  
+<!-- Footer -->
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-12 footer-info">
+        <p>Innofab est financé par l'Union Européenne dans le cadre du Fond feder</p>
+        <a class="logo d-flex align-items-center justify-content-center">
+          <img src="assets/img/ue.jpg" alt="">
+          <img src="assets/img/occitanie.png" alt="">
+          <img src="assets/img/europesengage.jpg" alt="">
+          <img src="assets/img/mit.png" alt="">
+        </a>
+      </div>
+      <div class="col-2 footer-links">
+        <h4>Publications</h4>
+        <ul>
+          <li><a href="nos-machine.php">Nos machines</a></li>
+          <li><a href="notre-camion.php">Notre camion</a></li>
+          <li><a href="blog.php">Blog</a></li>
+          <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
+        </ul>
+      </div>
+      <div class="col-2 footer-links">
+        <h4>Innofab</h4>
+        <ul>
+          <li><a href="tarifs.php">Nos tarifs</a></li>
+          <li><a href="contact.php">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="col-2 footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="cgu.php">CGU</a></li>
+          <li><a href="mentions-legales.php">Mentions légales</a></li>
+          <li><a href="politique-de-confidentialite.php">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+      <div class="row footer-bottom">
+        <div class="col-auto align-self-center">
+          <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
         </div>
-        <div class="col-2 footer-links">
-          <h4>Publications</h4>
-          <ul>
-            <li><a href="nos-machine.php">Nos machines</a></li>
-            <li><a href="notre-camion.php">Notre camion</a></li>
-            <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
-          </ul>
+        <div class="col-auto align-self-center">
+          <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
         </div>
-        <div class="col-2 footer-links">
-          <h4>Innofab</h4>
-          <ul>
-            <li><a href="tarifs.php">Nos tarifs</a></li>
-            <li><a href="contact.php">Nous contacter</a></li>
-          </ul>
+        <div class="col align-self-center">
+          <p><i class="bi bi-telephone"></i> : 07.49.10.60.31</p>
         </div>
-        <div class="col-2 footer-links">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="cgu.php">CGU</a></li>
-            <li><a href="mentions-legales.php">Mentions légales</a></li>
-            <li><a href="politique-de-confidentialite.php">Politique de confidentialité</a></li>
-          </ul>
-        </div>
-        <div class="row footer-bottom">
-          <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
-          </div>
-          <div class="col-auto align-self-center">
-            <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
-          </div>
-          <div class="col align-self-center">
-            <p><i class="bi bi-telephone"></i> : 07.49.10.60.31</p>
-          </div>
-          <div class="col-auto ml-auto">
-            <div class="social-links">
-              <a href="https://www.facebook.com/innofabcastres" class="social-link facebook"><i class="bi bi-facebook"></i></a>
-              <a href="https://discord.com/invite/nTcpBuD" class="social-link discord"><i class="bi bi-discord"></i></a>
-              <a href="https://www.instagram.com/fablab_innofab" class="social-link instagram"><i class="bi bi-instagram"></i></a>
-            </div>
+        <div class="col-auto ml-auto">
+          <div class="social-links">
+            <a href="https://www.facebook.com/innofabcastres" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://discord.com/invite/nTcpBuD" class="social-link discord"><i class="bi bi-discord"></i></a>
+            <a href="https://www.instagram.com/fablab_innofab" class="social-link instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </footer>
+</footer>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+</body>
 
 </html>

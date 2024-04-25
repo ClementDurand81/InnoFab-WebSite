@@ -136,8 +136,8 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
+                        <th>Image</th>
+                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
