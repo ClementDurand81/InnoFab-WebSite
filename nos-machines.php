@@ -101,7 +101,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- Main Section -->
   <section class="section-header section-header-title background-custom-3 d-flex align-items-center">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 text-center">Nos machines</h5>
+      <h5 class="mt-5 pt-4 text-center">Nos machines</h5>
       <hr class="horizontal-line">
       <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
         <div class="card">

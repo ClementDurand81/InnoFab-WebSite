@@ -99,26 +99,28 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="background-custom-3 d-flex align-items-center">
+  <section class="background-custom-3 section-header-card d-flex align-items-center">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 text-center">Blog</h5>
+      <h5 class="mt-5 pt-4 text-center">Blog</h5>
       <hr class="horizontal-line">
       <div class="blog-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
-        <div class="blog-container">
-          <div class="blog-body d-flex align-items-center">
-            <!-- Image à gauche -->
-            <div class="image-container">
-              <img src="assets/img/enseignement-superieur.jpg" class="small-image">
-            </div>
-            <!-- Contenu à droite -->
-            <div>
-              <!-- Titre -->
-              <h3 class="text-left">Titre</h3>
-              <!-- Paragraphe -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <a href="blog-info.php">
+          <div class="blog-container">
+            <div class="blog-body d-flex align-items-center">
+              <!-- Image à gauche -->
+              <div class="image-container">
+                <img src="assets/img/enseignement-superieur.jpg" class="small-image">
+              </div>
+              <!-- Contenu à droite -->
+              <div>
+                <!-- Titre -->
+                <h3 class="text-left">Titre</h3>
+                <!-- Paragraphe -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>

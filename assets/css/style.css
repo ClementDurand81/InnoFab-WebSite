@@ -39,8 +39,11 @@ body {
 }
 
 a {
-  color: #ffffff;
   text-decoration: none;
+}
+
+p {
+  color:#000000;
 }
 
 .a-link:hover,
@@ -549,6 +552,7 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  color: #F2F2F2;
   background-color: #000000;
   text-align: center;
   line-height: 40px;

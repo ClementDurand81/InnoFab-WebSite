@@ -100,8 +100,10 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Main Section -->
-  <section class="background d-flex align-items-center">
+  <section class="background-custom-3 d-flex align-items-center">
     <div class="container">
+      <h5 class="mt-5 pt-4 text-center" data-aos="fade-up" data-aos-delay="400">Le titre du blog </h5>
+      <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
       <div class="row">
         <div class="col-md-6 text-center">
           <div class="p-4">
@@ -110,10 +112,19 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="col-md-6">
           <div class="py-4">
-            <h5 class="text-center" data-aos="fade-up" data-aos-delay="400">Plotter VersaStudio BN-20</h5>
-            <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-            <h2 class="justified" data-aos="fade-up" data-aos-delay="600">La Roland est une imprimante/plotter de découpe. Elle vous permettra de réaliser une multitude de projets 2D comme par exemple des posters, des affiches ou des stickers à l’aide de sa tête d’impression et de son cutter intégrés.
-              Différents types de papiers sont disponibles : papier photo, vinyle autocollant et papier flex pour le transfert textile.</h2>
+            <h2 class="justified" data-aos="fade-up" data-aos-delay="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="py-4">
+            <h2 class="justified" data-aos="fade-up" data-aos-delay="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="p-4">
+            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
           </div>
         </div>
       </div>
