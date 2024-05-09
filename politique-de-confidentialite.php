@@ -151,8 +151,8 @@ if (isset($_SESSION['user_id'])) {
           <li>Pour une durée de 3 ans à compter du dernier contact que les personnes auxquelles elles se rapportent ont eu avec notre société,</li>
           <li>Après l’exécution du contrat, en archivage intermédiaire, pour se constituer une preuve en cas de contentieux et dans la limite du délai de prescription applicable.</li>
         </ul>
-        <p><strong>Gestion des droits des personnes</strong></p>
         <p>Les données du compte client, créé par ce dernier, ont vocation à être conservées jusqu’à la suppression du compte par l’utilisateur. Toutefois, le compte pourra être considéré comme inactif à défaut d’utilisation pendant 2 ans et pourra faire l’objet d’une suppression.</p>
+        <p><strong>Gestion des droits des personnes</strong></p>
         <p>Lorsqu’une personne exerce son droit d’opposition à recevoir de la prospection, afin de garantir son effectivité, les informations permettant de prendre en compte ce droit sont conservées au minimum 3 ans à compter de l’exercice du droit.</p>
         <p><strong>Sécurité</strong></p>
         <p>Le responsable de traitement met en œuvre les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque compte tenu de l’état des connaissances, des coûts de mise en œuvre et de la nature, de la portée, du contexte et des finalités du traitement ainsi que des risques, dont le degré de probabilité et de gravité varie, pour les droits et libertés des personnes. Lors de l’évaluation du niveau de sécurité approprié, il est tenu compte en particulier des risques que présente le traitement, résultant notamment de la destruction, de la perte, de l’altération, de la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d’une autre manière, ou de l’accès non autorisé à de telles données, de manière accidentelle ou illicite.</p>
