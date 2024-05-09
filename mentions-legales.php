@@ -102,7 +102,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- Background Section  -->
   <section class="background-custom-2 d-flex align-items-center">
     <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 pt-4 text-center">Conditions Générales d'Utilisation</h5>
+      <h5 class="mt-5 pt-4 text-center">Mentions légales</h5>
       <hr class="horizontal-line">
     </div>
   </section>
@@ -111,32 +111,30 @@ if (isset($_SESSION['user_id'])) {
   <section id="values" class="values">
     <div class="container" data-aos="fade-up" data-aos-delay="600">
       <header class="section-header">
-        <h4><strong>Conditions Générales d'Utilisation (CGU) d'Innofab</strong></h4>
-        <p><strong>ARTICLE 1. ACCEPTATION DES CONDITIONS GÉNÉRALES D'UTILISATION</strong></p>
-        <p>Les CGU s’appliquent à tout commencement d’utilisation du Site par un Utilisateur.</p>
-        <p>En accédant et en utilisant le Site, l’Utilisateur accepte sans réserve ni condition les CGU et s’engage à les respecter en tous points.</p>
-        <p>La Société peut à tout moment modifier les termes des CGU. L’Utilisateur est expressément informé que les CGU applicables sont celles en vigueur, pour l’Utilisateur au jour de l’utilisation du Site.</p>
-        <p>La Société encourage les Utilisateurs à consulter régulièrement les CGU pour s’assurer d’être informés des modifications apportées.</p>
-        <p><strong>2. Traduction en Anglais</strong></p>
-        <p>Innofab propose une traduction complète du site en anglais pour faciliter l'accès aux informations et services pour les utilisateurs anglophones. Cette initiative comprend :</p>
-        <p>2.1. La traduction en anglais de toutes les pages du site, y compris la page d'accueil, la section machines, la page de réservation, les espaces utilisateurs, les mentions légales, et autres sections pertinentes.</p>
-        <p>2.2. Une traduction professionnelle de chaque bloc de texte, avec l’utilisation d’un vocabulaire adapté au secteur d'Innofab.</p>
-        <p>2.3. L'adaptation de l'interface utilisateur à la langue anglaise, avec un sélecteur de langue permettant aux utilisateurs de basculer entre la version française et anglaise.</p>
-        <p><strong>3. Page Machines</strong></p>
-        <p>La page présente les différentes machines disponibles chez Innofab avec des informations détaillées sur chacune d'entre elles.</p>
-        <p><strong>4. Site Responsive</strong></p>
-        <p>Le site offre une expérience utilisateur optimale sur ordinateur, tablette, et smartphone en proposant des formats adaptés.</p>
-        <p><strong>5. Réservations</strong></p>
-        <p>5.1. L’accès aux réservations est restreint aux adhérents.</p>
-        <p>5.2. Pour effectuer une réservation, l’adhérent doit d’abord remplir puis envoyer un formulaire de contact.</p>
-        <p>5.3. Chaque demande de réservation sera validée ou rejetée manuellement par un administrateur.</p>
-        <p><strong>6. Espaces Utilisateurs</strong></p>
-        <p>6.1. Le site comporte trois espaces utilisateurs distincts : visiteur, adhérent, administrateur.</p>
-        <p>6.2. Les accès aux espaces adhérent et administrateur sont sécurisés par une authentification par mot de passe.</p>
-        <p><strong>7. Base de Données</strong></p>
-        <p>Le site d’Innofab est lié à une base de données pour stocker les informations des adhérents, les réservations, et d'autres données pertinentes.</p>
-        <p><strong>8. Blog</strong></p>
-        <p>La page Blog, alimentée par l’administrateur du site, présente les actualités d'Innofab.</p>
+        <h4><strong>innofab.fr</strong></h4>
+        <p>Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., la loi N° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, et conformément au règlement européen pour la protection des données personnelles 2016/679 du 27 avril 2016, il est porté à la connaissance des utilisateurs et visiteurs du site innofab.fr les présentes mentions légales.</p>
+        <p>Le site innofab.fr est accessible à l’adresse suivante : <a href="https://innofab.fr">https://innofab.fr</a> (ci-après “le Site”). L’accès et l’utilisation du Site sont soumis aux présentes ” Mentions légales” détaillées ci-après ainsi qu’aux lois et/ou règlements applicables.</p>
+        <p>La connexion, l’utilisation et l’accès à ce Site impliquent l’acceptation intégrale et sans réserve de l’internaute de toutes les dispositions des présentes Mentions Légales.</p>
+        <p><strong>INFORMATIONS LÉGALES</strong></p>
+        <p>En vertu de l’Article 6 de la Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé dans cet article l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+        <p><strong>Editeur du site</strong></p>
+        <p>Le site innofab.fr est édité par :</p>
+        <p>Innofab, SAS au capital de 5 000 Euros</p>
+        <p>ayant son siège social à l’adresse suivante : Maison Campus 39 Rue Firmin Oulès 81100 CASTRES France,</p>
+        <p>et immatriculée au numéro suivant : RCS de Toulouse 892 235 069</p>
+        <p>Adresse e-mail : <a href="mailto:fabmanager@innofab.fr">fabmanager@innofab.fr</a></p>
+        <p>ci-après ” l’Éditeur “</p>
+        <p><strong>Directeur de publication</strong></p>
+        <p>Le Directeur de publication est : Pauline Béguin</p>
+        <p>ci-après ” le Directeur de publication “</p>
+        <p><strong>Hébergeur du site</strong></p>
+        <p>Le site innofab.fr est hébergé par :</p>
+        <p>OVH SAS, RTE DE LA FERME MASSON ZI LES HUTTES – 59820 Gravelines – France</p>
+        <p>Le prestataire OVH est autorisé à stocker et traiter les données personnelles des personnes physiques conformément au « PRIVACY SHIELD » :</p>
+        <p><a href="https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4">https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4</a></p>
+        <p><strong>Propriété intellectuelle</strong></p>
+        <p>Tous les éléments du site <a href="https://www.innofab.fr">www.innofab.fr</a> sont et restent la propriété intellectuelle et exclusive de Innofab SAS. Personne n’est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu’ils soient logiciels, visuels ou sonores.</p>
+        <p>Tout lien simple ou par hypertexte est strictement interdit sans un accord écrit auprès de Innofab SAS.</p>
       </header>
     </div>
   </section>
