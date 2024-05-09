@@ -100,14 +100,10 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Background Section  -->
-  <section class="background-custom d-flex align-items-center">
-    <div class="container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 pt-4 text-center">Comment ça marche ?</h5>
+  <section class="background-custom-2 d-flex align-items-center">
+    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Conditions Générales d'Utilisation</h5>
       <hr class="horizontal-line">
-      <h2>Innofab a pour but de promouvoir la fabrication par le numérique et la collaboration.
-        Ici vous avez la possibilité de faire aboutir vos projets de fabrication dans une ambiance conviviale, de partage et d’entraide.
-        L’adhésion au fablab vous permet d’accéder à l’ensemble des machines et de bénéficier des différentes formations proposées.
-        Pour votre première visite, nous vous invitons à prendre contact avec nous.</h2>
     </div>
   </section>
 
@@ -115,130 +111,57 @@ if (isset($_SESSION['user_id'])) {
   <section id="values" class="values">
     <div class="container" data-aos="fade-up" data-aos-delay="600">
       <header class="section-header">
-        <div class="container">
-          <div class="text-center">
-            <h2>Nos formations</h2>
-            <h3>Vous souhaitez apprendre à utiliser une machine ou des logiciels open source ?</h3>
-          </div>
-          <hr class="horizontal-line-black">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="py-5">
-                <h3>Nous vous proposons des formations individuelles ou collectives sur différentes thématiques :</h3>
-                <ul>
-                  <li>L’impression 3D : Zortrax – Raise3D – Up!</li>
-                  <li>La modélisation 3D : FreeCAD – Blender – Sculptris</li>
-                  <li>L’impression 2D : Rolland BN20</li>
-                  <li>La découpeuse laser : Trotec Speedy 400</li>
-                  <li>La vectorisation 2D : Inkscape</li>
-                  <li>L’électronique : Arduino – Raspberry Pi</li>
-                  <li>Le scan 3D : photogrammetrie Meshroom – Sense3D</li>
-                  <li>Programmation : C++ – scratch (Niveau1, initiation)</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="text-center">
-            <h2>Nos ateliers</h2>
-            <h3>Vous êtes animateur ou enseignant et vous souhaitez faire intervenir les makers du fablab ?</h3>
-          </div>
-          <hr class="horizontal-line-black">
-          <h3>Nous proposons aux établissements scolaires ou organismes, des ateliers de sensibilisation et de découverte aux nouvelles technologies.
-            Ces ateliers visent à sensibiliser le public, sur les différents potentiels des outils numériques et du faire soi même.
-            A travers ces ateliers le public expérimente la fabrication par le numérique à travers la coopération et l’entraide.
-            Ces ateliers sont à destination des écoliers, enfants, étudiants, demandeurs d’emploi, personnes âgées… Ils permettent à chacun, quel que soit son niveau, de découvrir ou redécouvrir son pouvoir de création !</h3>
-          <div class="row mx-5">
-            <div class="col-md-6">
-              <div class="p-5 mx-5">
-                <h3>Atelier de fabrication d’une main myoélectrique</h3>
-                <ul>
-                  <li>Modélisation et impression 3D TinkerCad/Zortrax</li>
-                  <li>Électronique Arduino</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form2.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-          </div>
-          <div class="row mx-5">
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form3.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-5">
-                <h3>Atelier d’initiation au pilotage de drones</h3>
-                <ul>
-                  <li>E011</li>
-                  <li>Modélisation</li>
-                  <li>Pilotage</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row mx-5">
-            <div class="col-md-6">
-              <div class="p-5 mx-5">
-                <h3>Atelier de programmation</h3>
-                <ul>
-                  <li>Scratch</li>
-                  <li>Raspberry Pi</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form4.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-          </div>
-          <div class="row mx-5">
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form5.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-5">
-                <h3>Atelier modélisation et impression 3D</h3>
-                <ul>
-                  <li>TinkerCad</li>
-                  <li>FreeCAD</li>
-                  <li>Blender</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row mx-5">
-            <div class="col-md-6">
-              <div class="p-5 mx-5">
-                <h3>Atelier vectorisation et découpe au laser</h3>
-                <ul>
-                  <li>Trotec speedy 400</li>
-                  <li>Vectorisation Inkscape</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-4">
-                <img src="assets/img/img-form6.jpg" alt="" class="custom-image-infos">
-              </div>
-            </div>
-          </div>
-        </div>
-        <h3>L’ensemble des ateliers sont encadrés par la fabmanager accompagnée de jeunes volontaires en service civique.
-          Pour des besoins spécifiques n’hésitez pas à nous contacter.</h3>
+        <p><strong>Conditions Générales d'Utilisation (CGU) d'Innofab</strong></p>
+
+        <p><strong>ARTICLE 1. ACCEPTATION DES CONDITIONS GÉNÉRALES D'UTILISATION</strong></p>
+
+        <p>Les CGU s’appliquent à tout commencement d’utilisation du Site par un Utilisateur.</p>
+
+        <p>En accédant et en utilisant le Site, l’Utilisateur accepte sans réserve ni condition les CGU et s’engage à les respecter en tous points.</p>
+
+        <p>La Société peut à tout moment modifier les termes des CGU. L’Utilisateur est expressément informé que les CGU applicables sont celles en vigueur, pour l’Utilisateur au jour de l’utilisation du Site.</p>
+
+        <p>La Société encourage les Utilisateurs à consulter régulièrement les CGU pour s’assurer d’être informés des modifications apportées.</p>
+
+        <p><strong>2. Traduction en Anglais</strong></p>
+
+        <p>Innofab propose une traduction complète du site en anglais pour faciliter l'accès aux informations et services pour les utilisateurs anglophones. Cette initiative comprend :</p>
+
+        <p>2.1. La traduction en anglais de toutes les pages du site, y compris la page d'accueil, la section machines, la page de réservation, les espaces utilisateurs, les mentions légales, et autres sections pertinentes.</p>
+
+        <p>2.2. Une traduction professionnelle de chaque bloc de texte, avec l’utilisation d’un vocabulaire adapté au secteur d'Innofab.</p>
+
+        <p>2.3. L'adaptation de l'interface utilisateur à la langue anglaise, avec un sélecteur de langue permettant aux utilisateurs de basculer entre la version française et anglaise.</p>
+
+        <p><strong>3. Page Machines</strong></p>
+
+        <p>La page présente les différentes machines disponibles chez Innofab avec des informations détaillées sur chacune d'entre elles.</p>
+
+        <p><strong>4. Site Responsive</strong></p>
+
+        <p>Le site offre une expérience utilisateur optimale sur ordinateur, tablette, et smartphone en proposant des formats adaptés.</p>
+
+        <p><strong>5. Réservations</strong></p>
+
+        <p>5.1. L’accès aux réservations est restreint aux adhérents.</p>
+
+        <p>5.2. Pour effectuer une réservation, l’adhérent doit d’abord remplir puis envoyer un formulaire de contact.</p>
+
+        <p>5.3. Chaque demande de réservation sera validée ou rejetée manuellement par un administrateur.</p>
+
+        <p><strong>6. Espaces Utilisateurs</strong></p>
+
+        <p>6.1. Le site comporte trois espaces utilisateurs distincts : visiteur, adhérent, administrateur.</p>
+
+        <p>6.2. Les accès aux espaces adhérent et administrateur sont sécurisés par une authentification par mot de passe.</p>
+
+        <p><strong>7. Base de Données</strong></p>
+
+        <p>Le site d’Innofab est lié à une base de données pour stocker les informations des adhérents, les réservations, et d'autres données pertinentes.</p>
+
+        <p><strong>8. Blog</strong></p>
+
+        <p>La page Blog, alimentée par l’administrateur du site, présente les actualités d'Innofab.</p>
       </header>
     </div>
   </section>

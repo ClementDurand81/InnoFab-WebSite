@@ -102,7 +102,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- Background Section  -->
   <section class="background-custom-2 d-flex align-items-center">
     <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 text-center">Membres Fondateurs</h5>
+      <h5 class="mt-5 pt-4 text-center">Membres Fondateurs</h5>
       <hr class="horizontal-line">
     </div>
   </section>
