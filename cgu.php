@@ -109,35 +109,33 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Values Section -->
   <section id="values" class="values">
-    <div class="container" data-aos="fade-up" data-aos-delay="600">
-      <header class="section-header">
-        <h4><strong>Conditions Générales d'Utilisation (CGU) d'Innofab</strong></h4>
-        <p><strong>ARTICLE 1. ACCEPTATION DES CONDITIONS GÉNÉRALES D'UTILISATION</strong></p>
-        <p>Les CGU s’appliquent à tout commencement d’utilisation du Site par un Utilisateur.</p>
-        <p>En accédant et en utilisant le Site, l’Utilisateur accepte sans réserve ni condition les CGU et s’engage à les respecter en tous points.</p>
-        <p>La Société peut à tout moment modifier les termes des CGU. L’Utilisateur est expressément informé que les CGU applicables sont celles en vigueur, pour l’Utilisateur au jour de l’utilisation du Site.</p>
-        <p>La Société encourage les Utilisateurs à consulter régulièrement les CGU pour s’assurer d’être informés des modifications apportées.</p>
-        <p><strong>2. Traduction en Anglais</strong></p>
-        <p>Innofab propose une traduction complète du site en anglais pour faciliter l'accès aux informations et services pour les utilisateurs anglophones. Cette initiative comprend :</p>
-        <p>2.1. La traduction en anglais de toutes les pages du site, y compris la page d'accueil, la section machines, la page de réservation, les espaces utilisateurs, les mentions légales, et autres sections pertinentes.</p>
-        <p>2.2. Une traduction professionnelle de chaque bloc de texte, avec l’utilisation d’un vocabulaire adapté au secteur d'Innofab.</p>
-        <p>2.3. L'adaptation de l'interface utilisateur à la langue anglaise, avec un sélecteur de langue permettant aux utilisateurs de basculer entre la version française et anglaise.</p>
-        <p><strong>3. Page Machines</strong></p>
-        <p>La page présente les différentes machines disponibles chez Innofab avec des informations détaillées sur chacune d'entre elles.</p>
-        <p><strong>4. Site Responsive</strong></p>
-        <p>Le site offre une expérience utilisateur optimale sur ordinateur, tablette, et smartphone en proposant des formats adaptés.</p>
-        <p><strong>5. Réservations</strong></p>
-        <p>5.1. L’accès aux réservations est restreint aux adhérents.</p>
-        <p>5.2. Pour effectuer une réservation, l’adhérent doit d’abord remplir puis envoyer un formulaire de contact.</p>
-        <p>5.3. Chaque demande de réservation sera validée ou rejetée manuellement par un administrateur.</p>
-        <p><strong>6. Espaces Utilisateurs</strong></p>
-        <p>6.1. Le site comporte trois espaces utilisateurs distincts : visiteur, adhérent, administrateur.</p>
-        <p>6.2. Les accès aux espaces adhérent et administrateur sont sécurisés par une authentification par mot de passe.</p>
-        <p><strong>7. Base de Données</strong></p>
-        <p>Le site d’Innofab est lié à une base de données pour stocker les informations des adhérents, les réservations, et d'autres données pertinentes.</p>
-        <p><strong>8. Blog</strong></p>
-        <p>La page Blog, alimentée par l’administrateur du site, présente les actualités d'Innofab.</p>
-      </header>
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <h4><strong>Conditions Générales d'Utilisation (CGU) d'Innofab</strong></h4>
+      <p><strong>ARTICLE 1. ACCEPTATION DES CONDITIONS GÉNÉRALES D'UTILISATION</strong></p>
+      <p>Les CGU s’appliquent à tout commencement d’utilisation du Site par un Utilisateur.</p>
+      <p>En accédant et en utilisant le Site, l’Utilisateur accepte sans réserve ni condition les CGU et s’engage à les respecter en tous points.</p>
+      <p>La Société peut à tout moment modifier les termes des CGU. L’Utilisateur est expressément informé que les CGU applicables sont celles en vigueur, pour l’Utilisateur au jour de l’utilisation du Site.</p>
+      <p>La Société encourage les Utilisateurs à consulter régulièrement les CGU pour s’assurer d’être informés des modifications apportées.</p>
+      <p><strong>2. Traduction en Anglais</strong></p>
+      <p>Innofab propose une traduction complète du site en anglais pour faciliter l'accès aux informations et services pour les utilisateurs anglophones. Cette initiative comprend :</p>
+      <p>2.1. La traduction en anglais de toutes les pages du site, y compris la page d'accueil, la section machines, la page de réservation, les espaces utilisateurs, les mentions légales, et autres sections pertinentes.</p>
+      <p>2.2. Une traduction professionnelle de chaque bloc de texte, avec l’utilisation d’un vocabulaire adapté au secteur d'Innofab.</p>
+      <p>2.3. L'adaptation de l'interface utilisateur à la langue anglaise, avec un sélecteur de langue permettant aux utilisateurs de basculer entre la version française et anglaise.</p>
+      <p><strong>3. Page Machines</strong></p>
+      <p>La page présente les différentes machines disponibles chez Innofab avec des informations détaillées sur chacune d'entre elles.</p>
+      <p><strong>4. Site Responsive</strong></p>
+      <p>Le site offre une expérience utilisateur optimale sur ordinateur, tablette, et smartphone en proposant des formats adaptés.</p>
+      <p><strong>5. Réservations</strong></p>
+      <p>5.1. L’accès aux réservations est restreint aux adhérents.</p>
+      <p>5.2. Pour effectuer une réservation, l’adhérent doit d’abord remplir puis envoyer un formulaire de contact.</p>
+      <p>5.3. Chaque demande de réservation sera validée ou rejetée manuellement par un administrateur.</p>
+      <p><strong>6. Espaces Utilisateurs</strong></p>
+      <p>6.1. Le site comporte trois espaces utilisateurs distincts : visiteur, adhérent, administrateur.</p>
+      <p>6.2. Les accès aux espaces adhérent et administrateur sont sécurisés par une authentification par mot de passe.</p>
+      <p><strong>7. Base de Données</strong></p>
+      <p>Le site d’Innofab est lié à une base de données pour stocker les informations des adhérents, les réservations, et d'autres données pertinentes.</p>
+      <p><strong>8. Blog</strong></p>
+      <p>La page Blog, alimentée par l’administrateur du site, présente les actualités d'Innofab.</p>
     </div>
   </section>
 

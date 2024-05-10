@@ -100,144 +100,26 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!-- Background Section  -->
-  <section class="background-custom d-flex align-items-center">
-    <div class="container" data-aos="fade-up" data-aos-delay="400">
-      <h5 class="mt-5 pt-4 text-center">Comment ça marche ?</h5>
+  <section class="background-custom-2 d-flex align-items-center">
+    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Notre camion</h5>
       <hr class="horizontal-line">
-      <h2>Innofab a pour but de promouvoir la fabrication par le numérique et la collaboration.
-        Ici vous avez la possibilité de faire aboutir vos projets de fabrication dans une ambiance conviviale, de partage et d’entraide.
-        L’adhésion au fablab vous permet d’accéder à l’ensemble des machines et de bénéficier des différentes formations proposées.
-        Pour votre première visite, nous vous invitons à prendre contact avec nous.</h2>
     </div>
   </section>
 
   <!-- Values Section -->
   <section id="values" class="values">
     <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
-      <div class="container">
-        <div class="text-center">
-          <h2>Nos formations</h2>
-          <h3>Vous souhaitez apprendre à utiliser une machine ou des logiciels open source ?</h3>
-        </div>
-        <hr class="horizontal-line-black">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="py-5">
-              <h3>Nous vous proposons des formations individuelles ou collectives sur différentes thématiques :</h3>
-              <ul>
-                <li>L’impression 3D : Zortrax – Raise3D – Up!</li>
-                <li>La modélisation 3D : FreeCAD – Blender – Sculptris</li>
-                <li>L’impression 2D : Rolland BN20</li>
-                <li>La découpeuse laser : Trotec Speedy 400</li>
-                <li>La vectorisation 2D : Inkscape</li>
-                <li>L’électronique : Arduino – Raspberry Pi</li>
-                <li>Le scan 3D : photogrammetrie Meshroom – Sense3D</li>
-                <li>Programmation : C++ – scratch (Niveau1, initiation)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-        </div>
+      <img src="assets/img/camion.jpeg" class="custom-image-camion mx-auto d-block">
+      <div class="mt-5">
+        <h4><strong>Les nouveautés</strong></h4>
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nibh ac quam auctor semper. In aliquam ex orci, et faucibus diam convallis non. 
+          Sed congue consectetur turpis, vel laoreet nibh molestie vel. Nam venenatis mi mauris, at iaculis arcu accumsan quis. 
+          In sit amet ex luctus, cursus libero quis, fringilla est. Phasellus sollicitudin magna at augue sodales rhoncus a vitae lectus. Ut enim nisi, 
+          fermentum vitae porta sed, convallis vitae mauris. Curabitur tincidunt consectetur arcu id sodales. Nunc et diam eu justo tincidunt tincidunt. 
+          Cras id bibendum libero. Curabitur vel lacus et nulla pellentesque imperdiet nec id enim. Nullam ligula nibh, faucibus quis aliquam vitae, bibendum eu dolor. 
+          In semper magna sed efficitur mollis. Fusce ac nisl in libero sagittis convallis ut id magna.</h3>
       </div>
-      <div class="container">
-        <div class="text-center">
-          <h2>Nos ateliers</h2>
-          <h3>Vous êtes animateur ou enseignant et vous souhaitez faire intervenir les makers du fablab ?</h3>
-        </div>
-        <hr class="horizontal-line-black">
-        <h3>Nous proposons aux établissements scolaires ou organismes, des ateliers de sensibilisation et de découverte aux nouvelles technologies.
-          Ces ateliers visent à sensibiliser le public, sur les différents potentiels des outils numériques et du faire soi même.
-          A travers ces ateliers le public expérimente la fabrication par le numérique à travers la coopération et l’entraide.
-          Ces ateliers sont à destination des écoliers, enfants, étudiants, demandeurs d’emploi, personnes âgées… Ils permettent à chacun, quel que soit son niveau, de découvrir ou redécouvrir son pouvoir de création !</h3>
-        <div class="row mx-5">
-          <div class="col-md-6">
-            <div class="p-5 mx-5">
-              <h3>Atelier de fabrication d’une main myoélectrique</h3>
-              <ul>
-                <li>Modélisation et impression 3D TinkerCad/Zortrax</li>
-                <li>Électronique Arduino</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form2.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-        </div>
-        <div class="row mx-5">
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form3.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="p-5">
-              <h3>Atelier d’initiation au pilotage de drones</h3>
-              <ul>
-                <li>E011</li>
-                <li>Modélisation</li>
-                <li>Pilotage</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-5">
-          <div class="col-md-6">
-            <div class="p-5 mx-5">
-              <h3>Atelier de programmation</h3>
-              <ul>
-                <li>Scratch</li>
-                <li>Raspberry Pi</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form4.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-        </div>
-        <div class="row mx-5">
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form5.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="p-5">
-              <h3>Atelier modélisation et impression 3D</h3>
-              <ul>
-                <li>TinkerCad</li>
-                <li>FreeCAD</li>
-                <li>Blender</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-5">
-          <div class="col-md-6">
-            <div class="p-5 mx-5">
-              <h3>Atelier vectorisation et découpe au laser</h3>
-              <ul>
-                <li>Trotec speedy 400</li>
-                <li>Vectorisation Inkscape</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6 text-center">
-            <div class="p-4">
-              <img src="assets/img/img-form6.jpg" alt="" class="custom-image-infos">
-            </div>
-          </div>
-        </div>
-      </div>
-      <h3>L’ensemble des ateliers sont encadrés par la fabmanager accompagnée de jeunes volontaires en service civique.
-        Pour des besoins spécifiques n’hésitez pas à nous contacter.</h3>
     </div>
   </section>
 

@@ -39,7 +39,12 @@ body {
 }
 
 a {
+  color: #ffffff;
   text-decoration: none;
+}
+
+a:hover {
+  color: #ff6b00;
 }
 
 p {
@@ -249,6 +254,12 @@ h6 {
   margin: 0 auto;
 }
 
+.custom-image-camion {
+  border-radius: 15px;
+  width: 900px;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
 .custom-image-machine {
   border-radius: 15px;
   width: 400px;
@@ -336,7 +347,6 @@ section {
 
 .section-header h3 {
   font-size: 20px;
-  padding: 10px;
   font-weight: 500;
   color: #000000;
 }

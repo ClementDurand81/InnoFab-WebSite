@@ -109,109 +109,105 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Values Section -->
   <section id="values" class="values">
-    <div class="container" data-aos="fade-up" data-aos-delay="600">
-      <header class="section-header">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="p-3">
-                <h3>Le groupe Pierre Fabre, fondé en 1962 par Pierre Fabre, est un leader mondial dans le domaine pharmaceutique et dermo-cosmétique. 
-                  Spécialisé dans la recherche, le développement et la commercialisation de produits de santé et de beauté, l'entreprise est présente 
-                  dans plus de 130 pays.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-3">
-                <img src="assets/img/pierre-fabre.jpg" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6 order-md-2 text-right-offset">
-              <div class="p-3">
-                <h3>La CCI du Tarn, en Occitanie, représente et soutient les entreprises locales. Elle propose des services de conseil, de formation, d'innovation 
-                  et d'internationalisation pour favoriser leur développement. Elle contribue également à promouvoir le commerce, l'industrie et le tourisme dans 
-                  la région, stimulant ainsi la croissance économique et le dynamisme entrepreneurial du département.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center order-md-1">
-              <div class="p-3">
-                <img src="assets/img/cci-tarn.jpg" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="p-3">
-                <h3>Le Syndicat Mixte pour l'Enseignement du Sud du Tarn rassemble diverses collectivités locales pour optimiser leurs ressources et coordonner 
-                  leurs actions éducatives. Son objectif est d'améliorer l'offre éducative dans la région en favorisant la collaboration entre institutions et 
-                  en développant des projets novateurs, comme la construction d'écoles, les activités périscolaires et le soutien à la scolarité.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-3">
-                <img src="assets/img/enseignement-superieur.jpg" alt="" class="custom-image-infos-3 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6 order-md-2 text-right-offset">
-              <div class="p-3">
-                <h3>Castres-Mazamet Technopole est un hub d'innovation basé dans le département du Tarn, en France. Il soutient les entreprises locales en 
-                  favorisant l'innovation, la recherche et l'entrepreneuriat. Son objectif est de stimuler la croissance économique en encourageant la 
-                  collaboration entre les entreprises, les institutions académiques et les acteurs de la recherche.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center order-md-1">
-              <div class="p-3">
-                <img src="assets/img/technopole.png" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="p-3">
-                <h3>Sirea Group est une entreprise spécialisée dans les solutions énergétiques et l'automatisation industrielle. Depuis sa fondation 
-                  en 2004, elle se concentre sur le développement et la mise en œuvre de systèmes intelligents pour la gestion de l'énergie, les énergies 
-                  renouvelables et l'automatisation des processus industriels.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-3">
-                <img src="assets/img/sirea.jpg" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6 order-md-2 text-right-offset">
-              <div class="p-3">
-                <h3>BeProject est une société de développement web qui se spécialise dans la création de solutions numériques personnalisées pour ses clients. 
-                  Leur équipe experte travaille sur une variété de projets, des sites web simples aux applications web complexes, en mettant l'accent sur la 
-                  satisfaction client et l'innovation.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center order-md-1">
-              <div class="p-4">
-                <img src="assets/img/be-project.png" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="p-3">
-                <h3>L'IUT de Castres, intégré à l'Université Toulouse-Jean Jaurès, offre des formations professionnelles de niveau Bac+2 à Bac+3 dans divers 
-                  domaines techniques comme l'informatique, les réseaux, le génie électrique et mécanique. Son enseignement pratique et théorique vise 
-                  à préparer les étudiants à entrer dans le monde professionnel ou à poursuivre leurs études.</h3>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <div class="p-3">
-                <img src="assets/img/iut-castres.png" alt="" class="custom-image-infos-2 p-4">
-              </div>
-            </div>
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="p-3">
+            <h3>Le groupe Pierre Fabre, fondé en 1962 par Pierre Fabre, est un leader mondial dans le domaine pharmaceutique et dermo-cosmétique. 
+              Spécialisé dans la recherche, le développement et la commercialisation de produits de santé et de beauté, l'entreprise est présente 
+              dans plus de 130 pays.</h3>
           </div>
         </div>
-      </header>
+        <div class="col-md-6 text-center">
+          <div class="p-3">
+            <img src="assets/img/pierre-fabre.jpg" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 text-right-offset">
+          <div class="p-3">
+            <h3>La CCI du Tarn, en Occitanie, représente et soutient les entreprises locales. Elle propose des services de conseil, de formation, d'innovation 
+              et d'internationalisation pour favoriser leur développement. Elle contribue également à promouvoir le commerce, l'industrie et le tourisme dans 
+              la région, stimulant ainsi la croissance économique et le dynamisme entrepreneurial du département.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center order-md-1">
+          <div class="p-3">
+            <img src="assets/img/cci-tarn.jpg" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="p-3">
+            <h3>Le Syndicat Mixte pour l'Enseignement du Sud du Tarn rassemble diverses collectivités locales pour optimiser leurs ressources et coordonner 
+              leurs actions éducatives. Son objectif est d'améliorer l'offre éducative dans la région en favorisant la collaboration entre institutions et 
+              en développant des projets novateurs, comme la construction d'écoles, les activités périscolaires et le soutien à la scolarité.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="p-3">
+            <img src="assets/img/enseignement-superieur.jpg" alt="" class="custom-image-infos-3 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 text-right-offset">
+          <div class="p-3">
+            <h3>Castres-Mazamet Technopole est un hub d'innovation basé dans le département du Tarn, en France. Il soutient les entreprises locales en 
+              favorisant l'innovation, la recherche et l'entrepreneuriat. Son objectif est de stimuler la croissance économique en encourageant la 
+              collaboration entre les entreprises, les institutions académiques et les acteurs de la recherche.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center order-md-1">
+          <div class="p-3">
+            <img src="assets/img/technopole.png" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="p-3">
+            <h3>Sirea Group est une entreprise spécialisée dans les solutions énergétiques et l'automatisation industrielle. Depuis sa fondation 
+              en 2004, elle se concentre sur le développement et la mise en œuvre de systèmes intelligents pour la gestion de l'énergie, les énergies 
+              renouvelables et l'automatisation des processus industriels.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="p-3">
+            <img src="assets/img/sirea.jpg" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 text-right-offset">
+          <div class="p-3">
+            <h3>BeProject est une société de développement web qui se spécialise dans la création de solutions numériques personnalisées pour ses clients. 
+              Leur équipe experte travaille sur une variété de projets, des sites web simples aux applications web complexes, en mettant l'accent sur la 
+              satisfaction client et l'innovation.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center order-md-1">
+          <div class="p-4">
+            <img src="assets/img/be-project.png" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="p-3">
+            <h3>L'IUT de Castres, intégré à l'Université Toulouse-Jean Jaurès, offre des formations professionnelles de niveau Bac+2 à Bac+3 dans divers 
+              domaines techniques comme l'informatique, les réseaux, le génie électrique et mécanique. Son enseignement pratique et théorique vise 
+              à préparer les étudiants à entrer dans le monde professionnel ou à poursuivre leurs études.</h3>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="p-3">
+            <img src="assets/img/iut-castres.png" alt="" class="custom-image-infos-2 p-4">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

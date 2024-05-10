@@ -109,33 +109,31 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Values Section -->
   <section id="values" class="values">
-    <div class="container" data-aos="fade-up" data-aos-delay="600">
-      <header class="section-header">
-        <h4><strong>innofab.fr</strong></h4>
-        <p>Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., la loi N° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, et conformément au règlement européen pour la protection des données personnelles 2016/679 du 27 avril 2016, il est porté à la connaissance des utilisateurs et visiteurs du site innofab.fr les présentes mentions légales.</p>
-        <p>Le site innofab.fr est accessible à l’adresse suivante : <a href="https://innofab.fr">https://innofab.fr</a> (ci-après “le Site”). L’accès et l’utilisation du Site sont soumis aux présentes ” Mentions légales” détaillées ci-après ainsi qu’aux lois et/ou règlements applicables.</p>
-        <p>La connexion, l’utilisation et l’accès à ce Site impliquent l’acceptation intégrale et sans réserve de l’internaute de toutes les dispositions des présentes Mentions Légales.</p>
-        <p><strong>INFORMATIONS LÉGALES</strong></p>
-        <p>En vertu de l’Article 6 de la Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé dans cet article l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
-        <p><strong>Editeur du site</strong></p>
-        <p>Le site innofab.fr est édité par :</p>
-        <p>Innofab, SAS au capital de 5 000 Euros</p>
-        <p>ayant son siège social à l’adresse suivante : Maison Campus 39 Rue Firmin Oulès 81100 CASTRES France,</p>
-        <p>et immatriculée au numéro suivant : RCS de Toulouse 892 235 069</p>
-        <p>Adresse e-mail : <a href="mailto:fabmanager@innofab.fr">fabmanager@innofab.fr</a></p>
-        <p>ci-après ” l’Éditeur “</p>
-        <p><strong>Directeur de publication</strong></p>
-        <p>Le Directeur de publication est : Pauline Béguin</p>
-        <p>ci-après ” le Directeur de publication “</p>
-        <p><strong>Hébergeur du site</strong></p>
-        <p>Le site innofab.fr est hébergé par :</p>
-        <p>OVH SAS, RTE DE LA FERME MASSON ZI LES HUTTES – 59820 Gravelines – France</p>
-        <p>Le prestataire OVH est autorisé à stocker et traiter les données personnelles des personnes physiques conformément au « PRIVACY SHIELD » :</p>
-        <p><a href="https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4">https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4</a></p>
-        <p><strong>Propriété intellectuelle</strong></p>
-        <p>Tous les éléments du site <a href="https://www.innofab.fr">www.innofab.fr</a> sont et restent la propriété intellectuelle et exclusive de Innofab SAS. Personne n’est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu’ils soient logiciels, visuels ou sonores.</p>
-        <p>Tout lien simple ou par hypertexte est strictement interdit sans un accord écrit auprès de Innofab SAS.</p>
-      </header>
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <h4><strong>innofab.fr</strong></h4>
+      <p>Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., la loi N° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, et conformément au règlement européen pour la protection des données personnelles 2016/679 du 27 avril 2016, il est porté à la connaissance des utilisateurs et visiteurs du site innofab.fr les présentes mentions légales.</p>
+      <p>Le site innofab.fr est accessible à l’adresse suivante : <strong><a href="https://innofab.fr" style="color:black;">https://innofab.fr</a></strong> (ci-après “le Site”). L’accès et l’utilisation du Site sont soumis aux présentes ” Mentions légales” détaillées ci-après ainsi qu’aux lois et/ou règlements applicables.</p>
+      <p>La connexion, l’utilisation et l’accès à ce Site impliquent l’acceptation intégrale et sans réserve de l’internaute de toutes les dispositions des présentes Mentions Légales.</p>
+      <p><strong>INFORMATIONS LÉGALES</strong></p>
+      <p>En vertu de l’Article 6 de la Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé dans cet article l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+      <p><strong>Editeur du site</strong></p>
+      <p>Le site innofab.fr est édité par :</p>
+      <p>Innofab, SAS au capital de 5 000 Euros</p>
+      <p>ayant son siège social à l’adresse suivante : Maison Campus 39 Rue Firmin Oulès 81100 CASTRES France,</p>
+      <p>et immatriculée au numéro suivant : RCS de Toulouse 892 235 069</p>
+      <p>Adresse e-mail : <strong>fabmanager@innofab.fr</strong></p>
+      <p>ci-après ” l’Éditeur “</p>
+      <p><strong>Directeur de publication</strong></p>
+      <p>Le Directeur de publication est : Pauline Béguin</p>
+      <p>ci-après ” le Directeur de publication “</p>
+      <p><strong>Hébergeur du site</strong></p>
+      <p>Le site innofab.fr est hébergé par :</p>
+      <p>OVH SAS, RTE DE LA FERME MASSON ZI LES HUTTES – 59820 Gravelines – France</p>
+      <p>Le prestataire OVH est autorisé à stocker et traiter les données personnelles des personnes physiques conformément au « PRIVACY SHIELD » :</p>
+      <p><strong><a href="https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4" style="color:black;">https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4</a></strong></p>
+      <p><strong>Propriété intellectuelle</strong></p>
+      <p>Tous les éléments du site <strong><a href="https://www.innofab.fr" style="color:black;">www.innofab.fr</a></strong> sont et restent la propriété intellectuelle et exclusive de Innofab SAS. Personne n’est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu’ils soient logiciels, visuels ou sonores.</p>
+      <p>Tout lien simple ou par hypertexte est strictement interdit sans un accord écrit auprès de Innofab SAS.</p>
     </div>
   </section>
 

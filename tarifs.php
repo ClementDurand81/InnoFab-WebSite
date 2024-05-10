@@ -106,8 +106,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="card-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Titre -->
-            <h3 class="p-2 text-left">Moins de 25 ans</h3>
+            <h3 class="text-center">Moins de 25 ans</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
                 <h6 class="text-center">10 €</h6>
@@ -117,7 +116,6 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Titre -->
             <h3 class="text-center">Plus de 25</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
@@ -128,7 +126,6 @@ if (isset($_SESSION['user_id'])) {
         </div> 
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Titre -->
             <h3 class="text-center">Famille</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
@@ -139,7 +136,6 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <!-- Titre -->
             <h3 class="text-center">Organismes</h3>
             <hr class="horizontal-line-card">
             <h3 class="p-2 text-center">moins de 10 salariés</h3>
