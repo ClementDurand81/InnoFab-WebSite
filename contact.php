@@ -20,7 +20,6 @@ if (isset($_SESSION['user_id'])) {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
           <li><a class="nav-link scrollto" href="nos-machines.php">Machines</a></li>
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
           <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
-          <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="contact.php">Contact</a></li>
           <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
@@ -99,18 +98,36 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </header>
 
-  <!-- Background Section  -->
-  <section class="background-custom-2 d-flex align-items-center">
-    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+  <!-- Main Section -->
+  <section class="background-custom-3 d-flex align-items-center">
+    <div class="container" data-aos="fade-up" data-aos-delay="400">
       <h5 class="mt-5 pt-4 text-center">Contact</h5>
       <hr class="horizontal-line">
-    </div>
-  </section>
-
-  <!-- Values Section -->
-  <section id="values" class="values">
-    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
-
+      <div class="mt-5" data-aos="fade-up" data-aos-delay="600">
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Informations de contact</h3>
+            <p>Lieu : Maison Campus 39 Rue Firmin Oulès 81100 Castres</p>
+            <p>Discord : https://discord.com/invite/nTcpBuD</p>
+            <p>Email : fabmanager@innofab.fr</p>
+            <p>Téléphone : 07.49.10.60.31</p>
+            <p>Horaires : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
+          </div>
+          <div class="contact-form">
+            <h3>Formulaire de contact</h3>
+            <form>
+              <label for="name">Votre nom :</label>
+              <input type="text" id="name" name="name" required>
+              <label for="email">Votre email :</label>
+              <input type="email" id="email" name="email" required>
+              <label for="comments">Commentaires :</label>
+              <textarea id="comments" name="comments" required></textarea>
+              <button type="submit" class="btn-form">Envoyer</button>
+            </form>
+          </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.182753198864!2d2.2637244!3d43.6235551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ae0f80878d33cd%3A0x2d3b8b7749222c1!2sInnofab!5e0!3m2!1sfr!2sfr!4v1715360067812!5m2!1sfr!2sfr" width="1300" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </section>
 
@@ -171,14 +188,8 @@ if (isset($_SESSION['user_id'])) {
         </div>
       </div>
     </div>
-
   </footer>
 
-  <?php
-  if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
-    echo "<script>alert('Inscription réussie !');</script>";
-  }
-  ?>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

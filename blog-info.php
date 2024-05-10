@@ -147,7 +147,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="col-2 footer-links">
           <h4>Publications</h4>
           <ul>
-            <li><a href="nos-machine.php">Nos machines</a></li>
+            <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
