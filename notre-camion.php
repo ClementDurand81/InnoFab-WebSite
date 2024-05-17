@@ -110,7 +110,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- Values Section -->
   <section id="values" class="values">
     <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
-      <img src="assets/img/camion.jpeg" class="custom-image-camion mx-auto d-block">
+      <img src="assets/img/camion.png" class="custom-image-camion mx-auto d-block">
       <div class="mt-5">
         <h4><strong>Les nouveautés</strong></h4>
         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nibh ac quam auctor semper. In aliquam ex orci, et faucibus diam convallis non. 
