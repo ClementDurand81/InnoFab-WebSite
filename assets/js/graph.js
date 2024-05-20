@@ -1,48 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var ctx1 = document.getElementById('userChart').getContext('2d');
-    var userChart = new Chart(ctx1, {
-        type: 'doughnut',
-        data: {
-            labels: ['Inscrits', 'En attente'],
-            datasets: [{
-                label: 'Utilisateurs',
-                data: [nombre_d_inscrits, nombre_d_inscrits_en_attente],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-        }
-    });
-
-    var ctx2 = document.getElementById('statChart').getContext('2d');
-    var statChart = new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: dataLabels,
-            datasets: [{
-                label: 'Vue sur le Site',
-                data: dataValues,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-        }
-    });
-
     var ctx3 = document.getElementById('blogChart').getContext('2d');
     var blogChart = new Chart(ctx3, {
         type: 'line',

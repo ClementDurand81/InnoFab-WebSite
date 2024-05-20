@@ -94,33 +94,6 @@ $dataValues = [12, 19, 3, 17, 7, 3, 22];
       <!-- Première carte -->
       <div class="card">
         <div class="card-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <div class="card-content">
-          <h3>Utilisateurs</h3>
-          <div class="chart-container user-chart-container">
-            <canvas id="userChart" class="chart-canvas"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <!-- Deuxième carte -->
-      <div class="card">
-        <div class="card-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="card-content">
-          <h3>Site</h3>
-          <div class="chart-container stat-chart-container">
-            <canvas id="statChart" class="chart-canvas"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-container"> <!-- Ajoutez un conteneur pour les cartes -->
-      <!-- Première carte -->
-      <div class="card">
-        <div class="card-icon">
           <i class="fas fa-blog"></i>
         </div>
         <div class="card-content">
@@ -147,10 +120,6 @@ $dataValues = [12, 19, 3, 17, 7, 3, 22];
   </div>
 
   <script>
-    var nombre_d_inscrits = <?php echo $nombre_d_inscrits; ?>;
-    var nombre_d_inscrits_en_attente = <?php echo $nombre_d_inscrits_en_attente; ?>;
-    var dataLabels = <?php echo json_encode($dataLabels); ?>;
-    var dataValues = <?php echo json_encode($dataValues); ?>;
     var dataLabelsMachines = <?php echo $dataLabelsMachinesJson; ?>;
     var dataValuesMachines = <?php echo $dataValuesMachinesJson; ?>;
     var dataLabelsBlogs = <?php echo json_encode($dataLabelsBlogs); ?>;
