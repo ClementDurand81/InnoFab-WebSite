@@ -48,14 +48,6 @@ foreach ($blogData as $blog) {
 // Convertir les tableaux en JSON pour une utilisation dans JavaScript
 $dataLabelsBlogsJson = json_encode($dataLabelsBlogs);
 $dataValuesBlogsJson = json_encode($dataValuesBlogs);
-
-$nombre_de_connexions = 100;
-$nombre_d_inscrits = 50;
-$nombre_d_inscrits_en_attente = 20;
-
-$dataLabels = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-$dataValues = [12, 19, 3, 17, 7, 3, 22];
-
 ?>
 
 <!DOCTYPE html>
