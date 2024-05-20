@@ -1,64 +1,79 @@
 function afficherFormulaire() {
-    document.getElementById("formulaire").classList.remove("hidden");
-    document.getElementById("tableau").classList.add("hidden");
-    document.getElementById("tableau2").classList.add("hidden");
-    document.getElementById("popupForm").classList.add("hidden");
+  document.getElementById("formulaire").classList.remove("hidden");
+  document.getElementById("tableau").classList.add("hidden");
+  document.getElementById("tableau2").classList.add("hidden");
+  document.getElementById("popupForm").classList.add("hidden");
+}
+
+function afficherTableauModifier() {
+  document.getElementById("tableau").classList.remove("hidden");
+  document.getElementById("tableau2").classList.add("hidden");
+  document.getElementById("formulaire").classList.add("hidden");
+  document.getElementById("popupForm").classList.add("hidden");
+}
+
+function afficherTableauSupprimer() {
+  document.getElementById("tableau2").classList.remove("hidden");
+  document.getElementById("tableau").classList.add("hidden");
+  document.getElementById("formulaire").classList.add("hidden");
+  document.getElementById("popupForm").classList.add("hidden");
+}
+
+function afficherPopup() {
+  var popup = document.getElementById("popupForm");
+  var overlay = document.getElementById("overlay");
+  if (popup && overlay) {
+    popup.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  } else {
+    console.error(
+      "Erreur : Élément 'popupForm' ou 'overlay' non trouvé dans le DOM !"
+    );
   }
-  
-  function afficherTableauModifier() {
-    document.getElementById("tableau").classList.remove("hidden");
-    document.getElementById("tableau2").classList.add("hidden");
-    document.getElementById("formulaire").classList.add("hidden");
-    document.getElementById("popupForm").classList.add("hidden");
+}
+
+function fermerPopup() {
+  var popup = document.getElementById("popupForm");
+  var overlay = document.getElementById("overlay");
+  if (popup && overlay) {
+    popup.classList.add("hidden");
+    overlay.classList.add("hidden");
+  } else {
+    console.error(
+      "Erreur : Élément 'popupForm' ou 'overlay' non trouvé dans le DOM !"
+    );
   }
-  
-  function afficherTableauSupprimer() {
-    document.getElementById("tableau2").classList.remove("hidden");
-    document.getElementById("tableau").classList.add("hidden");
-    document.getElementById("formulaire").classList.add("hidden");
-    document.getElementById("popupForm").classList.add("hidden");
-  }
-  
-  function afficherPopup() {
-    var popup = document.getElementById("popupForm");
-    if (popup) {
-      popup.classList.remove("hidden");
-      overlay.classList.remove("hidden");
-    } else {
-      console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
-    }
-  }
-  
-  function fermerPopup() {
-    var popup = document.getElementById("popupForm");
-    if (popup) {
-      popup.classList.add("hidden");
-      overlay.classList.add("hidden");
-    } else {
-      console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
-    }
-  }
-  
-  // Variable globale pour stocker l'image sélectionnée
-  var nouvelleImage;
-  
-  function afficherFormulaireModifier(id, nom, image, petiteDescription, description) {
-    var form = document.createElement("form");
-    form.innerHTML = `
+}
+
+// Variables globales pour stocker les images sélectionnées
+var nouvelleImage1, nouvelleImage2, nouvelleImage3;
+
+function afficherFormulaireModifier(
+  id,
+  nom,
+  image1,
+  petiteDescription,
+  image2,
+  description1,
+  image3,
+  description2
+) {
+  var form = document.createElement("form");
+  form.innerHTML = `
         <div class="card">
             <div class="card-header">
                 Formulaire de modification
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="titreMachine">Titre de la machine:</label>
-                    <input type="text" class="form-control" id="titreMachine" name="titre" value="${escapeHTML(
+                    <label for="titreBlog">Titre du blog:</label>
+                    <input type="text" class="form-control" id="titreBlog" name="titre" value="${escapeHTML(
                       nom
                     )}" required>
                 </div>
                 <div class="form-group">
-                    <label for="nouvelleImage">Nouvelle Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*">
+                    <label for="nouvelleImage1">Nouvelle Image 1:</label>
+                    <input type="file" id="nouvelleImage1" name="nouvelleImage1" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="nouvellepetiteDescription">Nouvelle Petite Description:</label>
@@ -67,12 +82,26 @@ function afficherFormulaire() {
                     )}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="nouvelleDescription">Nouvelle Description:</label>
-                    <textarea class="form-control" id="nouvelleDescription" name="description" rows="4" required>${escapeHTML(
-                      description
+                    <label for="nouvelleImage2">Nouvelle Image 2:</label>
+                    <input type="file" id="nouvelleImage2" name="nouvelleImage2" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="nouvelleDescription1">Nouvelle Description 1:</label>
+                    <textarea class="form-control" id="nouvelleDescription1" name="nouvelleDescription1" rows="4" required>${escapeHTML(
+                      description1
                     )}</textarea>
                 </div>
-                <input type="hidden" id="id_machine" name="id_machine" value="${escapeHTML(
+                <div class="form-group">
+                    <label for="nouvelleImage3">Nouvelle Image 3:</label>
+                    <input type="file" id="nouvelleImage3" name="nouvelleImage3" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="nouvelleDescription2">Nouvelle Description 2:</label>
+                    <textarea class="form-control" id="nouvelleDescription2" name="nouvelleDescription2" rows="4" required>${escapeHTML(
+                      description2
+                    )}</textarea>
+                </div>
+                <input type="hidden" id="id_blog" name="id_blog" value="${escapeHTML(
                   id
                 )}">
                 <button type="button" class="btn btn-primary" onclick="sauvegarderModification()">Sauvegarder</button>
@@ -80,95 +109,114 @@ function afficherFormulaire() {
             </div>
         </div>
     `;
-  
-    var popupContent = document.querySelector(".popup-content");
-    if (popupContent) {
-      popupContent.innerHTML = ""; // Nettoyer le contenu précédent
-      popupContent.appendChild(form); // Ajouter le formulaire à la popup
-      afficherPopup(); // Afficher la popup
-      console.log("Formulaire de modification généré avec succès !");
-  
-      // Attachons un gestionnaire d'événements change à l'élément input de type fichier une fois qu'il est ajouté au DOM
-      var inputImage = form.querySelector("#image");
-      inputImage.addEventListener("change", function (event) {
-        nouvelleImage = event.target.files[0];
-        console.log("Fichier sélectionné :", nouvelleImage);
+
+  var popupContent = document.querySelector(".popup-content");
+  if (popupContent) {
+    popupContent.innerHTML = ""; // Nettoyer le contenu précédent
+    popupContent.appendChild(form); // Ajouter le formulaire à la popup
+    afficherPopup(); // Afficher la popup
+    console.log("Formulaire de modification généré avec succès !");
+
+    // Attacher un gestionnaire d'événements change à chaque input de type fichier
+    form
+      .querySelector("#nouvelleImage1")
+      .addEventListener("change", function (event) {
+        nouvelleImage1 = event.target.files[0];
+        console.log("Fichier sélectionné pour Image 1 :", nouvelleImage1);
       });
-    } else {
-      console.error("Erreur : Conteneur de la popup non trouvé !");
-    }
+    form
+      .querySelector("#nouvelleImage2")
+      .addEventListener("change", function (event) {
+        nouvelleImage2 = event.target.files[0];
+        console.log("Fichier sélectionné pour Image 2 :", nouvelleImage2);
+      });
+    form
+      .querySelector("#nouvelleImage3")
+      .addEventListener("change", function (event) {
+        nouvelleImage3 = event.target.files[0];
+        console.log("Fichier sélectionné pour Image 3 :", nouvelleImage3);
+      });
+  } else {
+    console.error("Erreur : Conteneur de la popup non trouvé !");
   }
-  
-  function sauvegarderModification() {
-    var id_machine = document.getElementById("id_machine").value;
-    var nouveauTitre = document.getElementById("titreMachine").value;
-  
-    // Récupérer la nouvelle description
-    var nouvellepetiteDescription = document.getElementById(
-      "nouvellepetiteDescription"
-    ).value;
-  
-    var nouvelleDescription = document.getElementById(
-      "nouvelleDescription"
-    ).value;
-  
-    // Créer un objet FormData et ajouter les données du formulaire
-    var formData = new FormData();
-    formData.append("id_machine", id_machine);
-    formData.append("nouveauTitre", nouveauTitre);
-    formData.append("nouvellepetiteDescription", nouvellepetiteDescription);
-    formData.append("nouvelleDescription", nouvelleDescription);
-  
-    // Vérifier si une image a été sélectionnée
-    if (nouvelleImage) {
-      console.log("Fichier sélectionné :", nouvelleImage);
-      formData.append("image", nouvelleImage);
+}
+
+function sauvegarderModification() {
+  var id_blog = document.getElementById("id_blog").value;
+  var nouveauTitre = document.getElementById("titreBlog").value;
+  var nouvellepetiteDescription = document.getElementById("nouvellepetiteDescription").value;
+  var nouvelleDescription1 = document.getElementById("nouvelleDescription1").value;
+  var nouvelleDescription2 = document.getElementById("nouvelleDescription2").value;
+
+  // Log for debugging
+  console.log("ID Blog:", id_blog);
+  console.log("Nouveau Titre:", nouveauTitre);
+  console.log("Nouvelle Petite Description:", nouvellepetiteDescription);
+  console.log("Nouvelle Description 1:", nouvelleDescription1);
+  console.log("Nouvelle Description 2:", nouvelleDescription2);
+  console.log("Nouvelle Image 1:", nouvelleImage1);
+  console.log("Nouvelle Image 2:", nouvelleImage2);
+  console.log("Nouvelle Image 3:", nouvelleImage3);
+
+  // Créer un objet FormData et ajouter les données du formulaire
+  var formData = new FormData();
+  formData.append("id_blog", id_blog);
+  formData.append("nouveauTitre", nouveauTitre);
+  formData.append("nouvellepetiteDescription", nouvellepetiteDescription);
+  formData.append("nouvelleDescription1", nouvelleDescription1);
+  formData.append("nouvelleDescription2", nouvelleDescription2);
+
+  // Ajouter chaque nouvelle image sélectionnée au FormData
+  if (nouvelleImage1) {
+    formData.append("nouvelleImage1", nouvelleImage1);
+  }
+  if (nouvelleImage2) {
+    formData.append("nouvelleImage2", nouvelleImage2);
+  }
+  if (nouvelleImage3) {
+    formData.append("nouvelleImage3", nouvelleImage3);
+  }
+
+  // Envoyer les données du formulaire via XMLHttpRequest
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../Serveur/modifier_blog.php");
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log("Modification réussie");
+      window.location.reload();
     } else {
-      console.log("Aucun fichier sélectionné");
+      console.log("Erreur lors de la modification:", xhr.responseText);
     }
-  
-    // Envoyer les données du formulaire via XMLHttpRequest
+  };
+  xhr.send(formData);
+}
+
+// Fonction pour supprimer un blog
+function supprimerBlog(id_blog) {
+  if (confirm("Êtes-vous sûr de vouloir supprimer ce blog ?")) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../Serveur/modifier_machine.php");
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        console.log("Modification réussie");
-        // Recharger la page après la modification
-        window.location.reload();
-      } else {
-        console.log("Erreur lors de la modification");
+    xhr.open("POST", "../Serveur/supprimerblog.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          // Actualiser la page après la suppression
+          window.location.reload();
+        } else {
+          console.error(xhr.responseText);
+        }
       }
     };
-    xhr.send(formData); // Envoyer les données du formulaire avec FormData
+    xhr.send("id_blog=" + id_blog);
   }
-  
-  // Fonction pour supprimer une machine
-  function supprimerMachine(machineID) {
-    if (confirm("Êtes-vous sûr de vouloir supprimer cette machine ?")) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "../Serveur/supprimermachine.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            // Actualiser la page après la suppression
-            window.location.reload();
-          } else {
-            console.error(xhr.responseText);
-          }
-        }
-      };
-      xhr.send("machineID=" + machineID);
-    }
-  }
-  
-  // Fonction pour échapper les caractères HTML
-  function escapeHTML(html) {
-    return html
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-  
+}
+
+// Fonction pour échapper les caractères HTML
+function escapeHTML(html) {
+  return html
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}

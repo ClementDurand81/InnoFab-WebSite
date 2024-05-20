@@ -25,7 +25,7 @@ if ($stmt === false) {
     http_response_code(500);
     exit("Erreur lors de la récupération des données des blogs.");
 }
-$machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -135,46 +135,61 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($blog['Description_1']); ?></td>
                             <td><img src="../<?php echo htmlspecialchars($blog['Image_3']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
                             <td><?php echo htmlspecialchars($blog['Description_2']); ?></td>
-                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($blog['id_blog']); ?>', '<?php echo htmlspecialchars($blog['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image_1']); ?>', '<?php echo htmlspecialchars($blog['petiteDescription']); ?>', '<?php echo htmlspecialchars($machine['Image_2']); ?>', '<?php echo htmlspecialchars($machine['Description_1']); ?>' , '<?php echo htmlspecialchars($machine['Image_3']); ?>', '<?php echo htmlspecialchars($machine['Description_2']); ?>')">Modifier</button></td>
+                            <td>
+                                <button class="btn btn-modifier" onclick="afficherFormulaireModifier(
+                        '<?php echo htmlspecialchars($blog['id_blog']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Titre']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Image_1']); ?>', 
+                        '<?php echo htmlspecialchars($blog['petiteDescription']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Image_2']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Description_1']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Image_3']); ?>', 
+                        '<?php echo htmlspecialchars($blog['Description_2']); ?>'
+                    )">Modifier</button>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
 
-        <!-- Structure HTML pour la carte pop-up -->
         <div id="popupForm" class="popup hidden">
             <div class="popup-content">
-                <div id="formulaireModifier" class="hidden">
+                <div id="formulaireModifier" class="formulaire-modifier">
                     <!-- Le formulaire sera injecté ici -->
                 </div>
             </div>
         </div>
 
-        <div id="overlay" class="overlay hidden"></div>
-
+        <div id="overlay" class="overlay hidden" onclick="fermerPopup()"></div>
 
         <div id="tableau2" class="hidden">
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nom</th>
-                        <th>Image</th>
+                        <th>Titre</th>
+                        <th>Image blog</th>
                         <th>Petite Description</th>
-                        <th>Description</th>
+                        <th>Image 1</th>
+                        <th>Description 1</th>
+                        <th>Image 2</th>
+                        <th>Description 2</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($machines as $machine) : ?>
+                    <?php foreach ($blogs as $blog) : ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($machine['id_machines']); ?></td>
-                            <td><?php echo htmlspecialchars($machine['Titre']); ?></td>
-                            <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
-                            <td><?php echo htmlspecialchars($machine['petiteDescription']); ?></td>
-                            <td><?php echo htmlspecialchars($machine['Description']); ?></td>
-                            <td><button onclick="supprimerMachine(<?php echo htmlspecialchars($machine['id_machines']); ?>)">Supprimer</button></td>
+                            <td><?php echo htmlspecialchars($blog['id_blog']); ?></td>
+                            <td><?php echo htmlspecialchars($blog['Titre']); ?></td>
+                            <td><img src="../<?php echo htmlspecialchars($blog['Image_1']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($blog['petiteDescription']); ?></td>
+                            <td><img src="../<?php echo htmlspecialchars($blog['Image_2']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($blog['Description_1']); ?></td>
+                            <td><img src="../<?php echo htmlspecialchars($blog['Image_3']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($blog['Description_2']); ?></td>
+                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($blog['id_blog']); ?>', '<?php echo htmlspecialchars($blog['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image_1']); ?>', '<?php echo htmlspecialchars($blog['petiteDescription']); ?>', '<?php echo htmlspecialchars($machine['Image_2']); ?>', '<?php echo htmlspecialchars($machine['Description_1']); ?>' , '<?php echo htmlspecialchars($machine['Image_3']); ?>', '<?php echo htmlspecialchars($machine['Description_2']); ?>')">Modifier</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

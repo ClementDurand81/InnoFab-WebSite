@@ -482,22 +482,35 @@ textarea.form-control {
     background-color: #b30000;
 }
 
+/* Style de base pour la pop-up */
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999;
-    width: 80%;
-    max-width: 600px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%;
+    overflow-y: auto; /* Permet le défilement vertical */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1001; /* Doit être supérieur à l'overlay */
 }
 
+/* Overlay sombre */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente pour l'effet de flou */
-    z-index: 9998; /* Z-index inférieur à celui de la popup pour la placer en dessous */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Doit être inférieur à la pop-up */
+}
+
+/* Style pour les boutons dans la pop-up */
+.popup-content button {
+    margin-right: 10px;
 }
