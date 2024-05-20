@@ -171,10 +171,6 @@ $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Titre</th>
                         <th>Image blog</th>
                         <th>Petite Description</th>
-                        <th>Image 1</th>
-                        <th>Description 1</th>
-                        <th>Image 2</th>
-                        <th>Description 2</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -185,11 +181,7 @@ $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($blog['Titre']); ?></td>
                             <td><img src="../<?php echo htmlspecialchars($blog['Image_1']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
                             <td><?php echo htmlspecialchars($blog['petiteDescription']); ?></td>
-                            <td><img src="../<?php echo htmlspecialchars($blog['Image_2']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
-                            <td><?php echo htmlspecialchars($blog['Description_1']); ?></td>
-                            <td><img src="../<?php echo htmlspecialchars($blog['Image_3']); ?>" alt="<?php echo htmlspecialchars($blog['Titre']); ?>" style="width: 100px;"></td>
-                            <td><?php echo htmlspecialchars($blog['Description_2']); ?></td>
-                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($blog['id_blog']); ?>', '<?php echo htmlspecialchars($blog['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image_1']); ?>', '<?php echo htmlspecialchars($blog['petiteDescription']); ?>', '<?php echo htmlspecialchars($machine['Image_2']); ?>', '<?php echo htmlspecialchars($machine['Description_1']); ?>' , '<?php echo htmlspecialchars($machine['Image_3']); ?>', '<?php echo htmlspecialchars($machine['Description_2']); ?>')">Modifier</button></td>
+                            <td><button class="btn btn-modifier" onclick="supprimerBlog('<?php echo htmlspecialchars($blog['id_blog']); ?>')">Supprimer</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

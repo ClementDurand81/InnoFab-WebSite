@@ -144,19 +144,17 @@ function afficherFormulaireModifier(
 function sauvegarderModification() {
   var id_blog = document.getElementById("id_blog").value;
   var nouveauTitre = document.getElementById("titreBlog").value;
-  var nouvellepetiteDescription = document.getElementById("nouvellepetiteDescription").value;
-  var nouvelleDescription1 = document.getElementById("nouvelleDescription1").value;
-  var nouvelleDescription2 = document.getElementById("nouvelleDescription2").value;
 
-  // Log for debugging
-  console.log("ID Blog:", id_blog);
-  console.log("Nouveau Titre:", nouveauTitre);
-  console.log("Nouvelle Petite Description:", nouvellepetiteDescription);
-  console.log("Nouvelle Description 1:", nouvelleDescription1);
-  console.log("Nouvelle Description 2:", nouvelleDescription2);
-  console.log("Nouvelle Image 1:", nouvelleImage1);
-  console.log("Nouvelle Image 2:", nouvelleImage2);
-  console.log("Nouvelle Image 3:", nouvelleImage3);
+  // Récupérer la nouvelle description
+  var nouvellepetiteDescription = document.getElementById(
+    "nouvellepetiteDescription"
+  ).value;
+  var nouvelleDescription1 = document.getElementById(
+    "nouvelleDescription1"
+  ).value;
+  var nouvelleDescription2 = document.getElementById(
+    "nouvelleDescription2"
+  ).value;
 
   // Créer un objet FormData et ajouter les données du formulaire
   var formData = new FormData();
@@ -168,12 +166,15 @@ function sauvegarderModification() {
 
   // Ajouter chaque nouvelle image sélectionnée au FormData
   if (nouvelleImage1) {
+    console.log("Fichier sélectionné pour Image 1 :", nouvelleImage1);
     formData.append("nouvelleImage1", nouvelleImage1);
   }
   if (nouvelleImage2) {
+    console.log("Fichier sélectionné pour Image 2 :", nouvelleImage2);
     formData.append("nouvelleImage2", nouvelleImage2);
   }
   if (nouvelleImage3) {
+    console.log("Fichier sélectionné pour Image 3 :", nouvelleImage3);
     formData.append("nouvelleImage3", nouvelleImage3);
   }
 
@@ -183,12 +184,13 @@ function sauvegarderModification() {
   xhr.onload = function () {
     if (xhr.status === 200) {
       console.log("Modification réussie");
+      // Recharger la page après la modification
       window.location.reload();
     } else {
-      console.log("Erreur lors de la modification:", xhr.responseText);
+      console.log("Erreur lors de la modification");
     }
   };
-  xhr.send(formData);
+  xhr.send(formData); // Envoyer les données du formulaire avec FormData
 }
 
 // Fonction pour supprimer un blog
@@ -210,7 +212,7 @@ function supprimerBlog(id_blog) {
     xhr.send("id_blog=" + id_blog);
   }
 }
-
+s;
 // Fonction pour échapper les caractères HTML
 function escapeHTML(html) {
   return html
