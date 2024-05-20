@@ -11,6 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouvellepetiteDescription = filter_input(INPUT_POST, 'nouvellepetiteDescription', FILTER_SANITIZE_SPECIAL_CHARS);
     $nouvelleDescription = filter_input(INPUT_POST, 'nouvelleDescription', FILTER_SANITIZE_SPECIAL_CHARS);
 
+    // Remplacer les retours à la ligne par des espaces dans les descriptions
+    $nouvellepetiteDescription = preg_replace("/\r?\n/", " ", $nouvellepetiteDescription);
+    $nouvelleDescription = preg_replace("/\r?\n/", " ", $nouvelleDescription);
+
     // Vérifier si un fichier a été téléchargé
     if (!empty($_FILES["image"]["name"])) {
         // Récupérer les informations sur le fichier téléchargé
@@ -74,3 +78,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     http_response_code(400);
     echo json_encode(array("message" => "Requête invalide"));
 }
+?>

@@ -15,8 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST['nom']) && !empty($_FILES['image']['name']) && !empty($_POST['petiteDescription']) && !empty($_POST['description'])) {
         // Récupérer et nettoyer les données du formulaire
         $nom = cleanInput($_POST['nom']);
-        $petiteDescription = cleanInput($_POST['petiteDescription']);
-        $description = cleanInput($_POST['description']);
+        // Remplacer les retours à la ligne par des espaces dans la description
+        $petiteDescription = cleanInput(preg_replace("/\r?\n/", " ", $_POST['petiteDescription']));
+        // Remplacer les retours à la ligne par des espaces dans la petite description
+        $description = cleanInput(preg_replace("/\r?\n/", " ", $_POST['description']));
 
         // Traitement de l'image
         $image = $_FILES['image'];
@@ -71,3 +73,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur : Veuillez remplir tous les champs.";
     }
 }
+?>

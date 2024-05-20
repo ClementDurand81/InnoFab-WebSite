@@ -1,4 +1,5 @@
 function afficherFormulaire() {
+  console.log("Afficher le formulaire d'ajout");
   document.getElementById("formulaire").classList.remove("hidden");
   document.getElementById("tableau").classList.add("hidden");
   document.getElementById("tableau2").classList.add("hidden");
@@ -6,6 +7,7 @@ function afficherFormulaire() {
 }
 
 function afficherTableauModifier() {
+  console.log("Afficher le tableau de modification");
   document.getElementById("tableau").classList.remove("hidden");
   document.getElementById("tableau2").classList.add("hidden");
   document.getElementById("formulaire").classList.add("hidden");
@@ -13,6 +15,7 @@ function afficherTableauModifier() {
 }
 
 function afficherTableauSupprimer() {
+  console.log("Afficher le tableau de suppression");
   document.getElementById("tableau2").classList.remove("hidden");
   document.getElementById("tableau").classList.add("hidden");
   document.getElementById("formulaire").classList.add("hidden");
@@ -20,29 +23,31 @@ function afficherTableauSupprimer() {
 }
 
 function afficherPopup() {
+  console.log("Afficher la popup");
   var popup = document.getElementById("popupForm");
-  if (popup) {
+  var overlay = document.getElementById("overlay");
+  if (popup && overlay) {
     popup.classList.remove("hidden");
     overlay.classList.remove("hidden");
   } else {
-    console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
+    console.error("Erreur : Élément 'popupForm' ou 'overlay' non trouvé dans le DOM !");
   }
 }
 
 function fermerPopup() {
+  console.log("Fermer la popup");
   var popup = document.getElementById("popupForm");
-  if (popup) {
+  var overlay = document.getElementById("overlay");
+  if (popup && overlay) {
     popup.classList.add("hidden");
     overlay.classList.add("hidden");
   } else {
-    console.error("Erreur : Élément 'popupForm' non trouvé dans le DOM !");
+    console.error("Erreur : Élément 'popupForm' ou 'overlay' non trouvé dans le DOM !");
   }
 }
 
-// Variable globale pour stocker l'image sélectionnée
-var nouvelleImage;
-
 function afficherFormulaireModifier(id, nom, image, petiteDescription, description) {
+  console.log("Afficher le formulaire de modification pour la machine", id);
   var form = document.createElement("form");
   form.innerHTML = `
       <div class="card">
@@ -162,12 +167,14 @@ function supprimerMachine(machineID) {
   }
 }
 
-// Fonction pour échapper les caractères HTML
 function escapeHTML(html) {
   return html
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
+    .replace(/'/g, "&#039;")
+    .replace(/\n/g, "&#10;") // Échapper les nouvelles lignes
+    .replace(/\r/g, "&#13;")
+    .replace(/\n/g, "<br>"); // Convertir les sauts de ligne en balises <br>
+  }

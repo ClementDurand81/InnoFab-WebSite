@@ -30,7 +30,6 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +38,6 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
-
 <body>
     <div class="sidebar">
         <h2>Menu</h2>
@@ -117,7 +115,15 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
                             <td><?php echo htmlspecialchars($machine['petiteDescription']); ?></td>
                             <td><?php echo htmlspecialchars($machine['Description']); ?></td>
-                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($machine['id_machines']); ?>', '<?php echo htmlspecialchars($machine['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image']); ?>', '<?php echo htmlspecialchars($machine['petiteDescription']); ?>', '<?php echo htmlspecialchars($machine['Description']); ?>')">Modifier</button></td>
+                            <td>
+                                <button class="btn btn-modifier" onclick="afficherFormulaireModifier(
+                            '<?php echo htmlspecialchars($machine['id_machines']); ?>',
+                            '<?php echo htmlspecialchars(addslashes($machine['Titre'])); ?>',
+                            '<?php echo htmlspecialchars(addslashes($machine['Image'])); ?>',
+                            '<?php echo htmlspecialchars(addslashes($machine['petiteDescription'])); ?>',
+                            '<?php echo htmlspecialchars(addslashes($machine['Description'])); ?>'
+                        )">Modifier</button>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -134,7 +140,6 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div id="overlay" class="overlay hidden"></div>
-
 
         <div id="tableau2" class="hidden">
             <table>
@@ -165,5 +170,4 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <script src="../assets/js/dashboard_machines.js"></script>
 </body>
-
 </html>

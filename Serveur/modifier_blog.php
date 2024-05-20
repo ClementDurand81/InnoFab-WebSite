@@ -20,11 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouvelleDescription1 = filter_input(INPUT_POST, 'nouvelleDescription1', FILTER_SANITIZE_SPECIAL_CHARS);
     $nouvelleDescription2 = filter_input(INPUT_POST, 'nouvelleDescription2', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    logMessage("ID Blog: $id_blog");
-    logMessage("Nouveau Titre: $nouveauTitre");
-    logMessage("Nouvelle Petite Description: $nouvellepetiteDescription");
-    logMessage("Nouvelle Description 1: $nouvelleDescription1");
-    logMessage("Nouvelle Description 2: $nouvelleDescription2");
+    // Remplacer les retours à la ligne par des espaces dans les descriptions
+    $nouvellepetiteDescription = preg_replace("/\r?\n/", " ", $nouvellepetiteDescription);
+    $nouvelleDescription1 = preg_replace("/\r?\n/", " ", $nouvelleDescription1);
+    $nouvelleDescription2 = preg_replace("/\r?\n/", " ", $nouvelleDescription2);
 
     // Vérifier et traiter les fichiers téléchargés
     $nouvelleImage1 = null;

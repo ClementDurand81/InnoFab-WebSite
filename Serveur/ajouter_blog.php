@@ -15,9 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST['nom']) && !empty($_FILES['image1']['name']) && !empty($_POST['petiteDescription']) && !empty($_POST['description1']) && !empty($_FILES['image2']['name'])  && !empty($_POST['description2']) && !empty($_FILES['image3']['name'])) {
         // Récupérer et nettoyer les données du formulaire
         $nom = cleanInput($_POST['nom']);
-        $petiteDescription = cleanInput($_POST['petiteDescription']);
-        $description1 = cleanInput($_POST['description1']);
-        $description2 = cleanInput($_POST['description2']);
+        // Supprimer les retours à la ligne des descriptions
+        $petiteDescription = cleanInput(preg_replace("/\r?\n/", " ", $_POST['petiteDescription']));
+        $description1 = cleanInput(preg_replace("/\r?\n/", " ", $_POST['description1']));
+        $description2 = cleanInput(preg_replace("/\r?\n/", " ", $_POST['description2']));
 
         // Tableau pour stocker les destinations des images
         $image_destinations = [];
