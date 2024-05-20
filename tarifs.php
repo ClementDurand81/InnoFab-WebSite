@@ -105,49 +105,53 @@ if (isset($_SESSION['user_id'])) {
       <hr class="horizontal-line">
       <div class="card-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
         <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/moins-de-25-ans.png" alt="Moins de 25 ans" class="price-image">
             <h3 class="text-center">Moins de 25 ans</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
-                <h6 class="text-center">10 €</h6>
-                <h3 class="mt-4">/ ans</h3>
+              <h7 class="text-center">10 € / </h7>
+              <h3 class="mt-2"> ans</h3>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <h3 class="text-center">Plus de 25</h3>
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/plus-de-25-ans.png" alt="Plus de 25 ans" class="price-image">
+            <h3 class="text-center">Plus de 25 ans</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
-                <h6 class="text-center">20 €</h6>
-                <h3 class="mt-4">/ ans</h3>
+              <h7 class="text-center">20 € / </h7>
+              <h3 class="mt-2"> ans</h3>
             </div>
           </div>
         </div> 
         <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/famille.png" alt="Famille" class="price-image">
             <h3 class="text-center">Famille</h3>
             <hr class="horizontal-line-card">
             <div class="d-flex align-items-center">
-                <h6 class="text-center">30 €</h6>
-                <h3 class="mt-4">/ ans</h3>
+              <h7 class="text-center">30 € / </h7>
+              <h3 class="mt-2"> ans</h3>
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-body d-flex flex-column align-items-center">
-            <h3 class="text-center">Organismes</h3>
+            <img src="assets/img/organismes.png" alt="Organismes" class="price-image">
+            <h3 class="text-center">Organisme</h3>
             <hr class="horizontal-line-card">
-            <h3 class="p-2 text-center">moins de 10 salariés</h3>
             <div class="d-flex align-items-center">
-                <h6 class="text-center">50 €</h6>
-                <h3 class="mt-4">/ ans</h3>
+                <h7 class="text-center">50 € / </h7>
+                <h3 class="mt-2"> ans</h3>
             </div>
-            <h3 class="p-2 text-center">plus de 10 salariés</h3>
+            <p class=" text-center">Moins de 10 salariés</p>
             <div class="d-flex align-items-center">
-                <h6 class="text-center">100 €</h6>
-                <h3 class="mt-4">/ ans</h3>
+                <h7 class="text-center">100 € / </h7>
+                <h3 class="mt-2"> ans</h3>
             </div>
+            <p class=" text-center">Plus de 10 salariés</p>
           </div>
         </div>
       </div>

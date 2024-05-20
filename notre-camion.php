@@ -112,13 +112,28 @@ if (isset($_SESSION['user_id'])) {
     <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
       <img src="assets/img/camion.png" class="custom-image-camion mx-auto d-block">
       <div class="mt-5">
-        <h4><strong>Les nouveautés</strong></h4>
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nibh ac quam auctor semper. In aliquam ex orci, et faucibus diam convallis non. 
-          Sed congue consectetur turpis, vel laoreet nibh molestie vel. Nam venenatis mi mauris, at iaculis arcu accumsan quis. 
-          In sit amet ex luctus, cursus libero quis, fringilla est. Phasellus sollicitudin magna at augue sodales rhoncus a vitae lectus. Ut enim nisi, 
-          fermentum vitae porta sed, convallis vitae mauris. Curabitur tincidunt consectetur arcu id sodales. Nunc et diam eu justo tincidunt tincidunt. 
-          Cras id bibendum libero. Curabitur vel lacus et nulla pellentesque imperdiet nec id enim. Nullam ligula nibh, faucibus quis aliquam vitae, bibendum eu dolor. 
-          In semper magna sed efficitur mollis. Fusce ac nisl in libero sagittis convallis ut id magna.</h3>
+        <h3><p>Innofab, fablab de Castres-Mazamet propose pour la première année, son dispositif mobile autour de la
+        démarche de projet créatif et interdisciplinaire, de la fabrication par soi-même et du prototypage
+        rapide. Il s’agit de faire bénéficier aux élèves de collèges/lycées des outils et méthodes inaccessibles
+        habituellement.</p>
+        <p>Ce nouveau défi permet également de pouvoir encore mieux « aller vers » les personnes éloignées du
+        numérique grâce à des ateliers découvertes et de formations éducatives aux outils digitaux
+        (modélisation 3D, imprimantes 3D, électronique …) dans différents lieux : centres sociaux, mission
+        locale, programme de réussite éducative, EHPAD, hôpitaux, etc... Les objectifs sont nombreux : création
+        de liens sociaux et le partage de savoirs, rencontres intergénérationnelles, interculturelles.</p>
+        <p>Pour la tournée 2024/2025, le but de l’Innomade est de déployer son fablab dans l'agglomération
+        Castres-Mazamet et plus largement le Tarn. Ce fablab mobile vise à augmenter les projets pédagogiques
+        en apportant des outils et des méthodes de création à l’aide de machines de prototypage rapide. Il rend
+        accessible des technologies numériques qui permettent de créer, fabriquer, prototyper, réparer ou
+        adapter. Il permet donc de réaliser des projets pluridisciplinaires. La démarche de projet créatif est au
+        cœur de ce dispositif.</p>
+        <p>La venue de l’Innomade est l’occasion de réaliser des ateliers/animations et de permettre ainsi à tous
+        d’expérimenter la fabrication numérique.</p>
+        <p>(catalogue et fiche technique à venir, pour toute demande, envoyez-nous un mail :
+        <strong>fabmanager.innofab@gmail.com</strong>)</p>
+        <p>Ce projet de “Fablab Itinérant” fait partie des lauréats de la deuxième édition du Budget Participatif du
+        département du Tarn. Grâce aux votes des Tarnais, le département a financé notre camion et
+        l'équipement des différentes machines de fabrication numérique.</p></h3>
       </div>
     </div>
   </section>

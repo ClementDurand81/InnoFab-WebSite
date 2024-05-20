@@ -101,27 +101,29 @@ if (isset($_SESSION['user_id'])) {
   <!-- Main Section -->
   <section class="background-custom-3 d-flex align-items-center">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Mon profil</h5>
+      <hr class="horizontal-line">
       <div class="mt-5" data-aos="fade-up" data-aos-delay="600">
         <div class="profile-container">
           <div class="row align-items-center">
             <!-- Image de profil-->
             <div class="col-md-12 text-center">
               <div class="profile-picture-container">
-                <img src="assets/img/cci-tarn.jpg" alt="Image de profil" class="profile-picture">
+                <img src="assets/img/profil.png" class="profile-picture">
               </div>
-              <h3 class="mt-4">Bonjour, John</h3>
+              <h3 class="mt-4">Bonjour, Test</h3>
             </div>
             <div class="col-md-12 vertical-line"></div>
             <!-- Informations du profil -->
             <div class="col-md-6">
               <!-- Nom et prénom -->
               <div class="profile-info">
-                <h4><strong>Nom :</strong> John</h4>
-                <h4><strong>Prénom :</strong> Doe</h4>
+                <h4><strong>Nom :</strong> Test</h4>
+                <h4><strong>Prénom :</strong> Test</h4>
               </div>
               <!-- Adresse mail -->
               <div class="profile-info">
-                <h4><strong>Email :</strong> john.doe@example.com</h4>
+                <h4><strong>Email :</strong> email@test.com</h4>
               </div>
               <!-- Numéro de téléphone -->
               <div class="profile-info">

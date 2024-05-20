@@ -101,9 +101,9 @@ if (isset($_SESSION['user_id'])) {
 
   <!-- Main Section -->
   <section class="background-custom-3 d-flex align-items-center">
-    <div class="container">
-      <h5 class="mt-5 pt-4 text-center" data-aos="fade-up" data-aos-delay="400">Le titre du blog </h5>
-      <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
+    <div class="container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Le titre du blog </h5>
+      <hr class="horizontal-line">
       <div class="row">
         <div class="col-md-6 text-center">
           <div class="p-4">

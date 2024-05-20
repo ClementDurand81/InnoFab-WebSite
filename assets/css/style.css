@@ -92,6 +92,14 @@ h6 {
   color: #000000;
 }
 
+h7 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+}
+
 .justified {
   text-align: justify;
 }
@@ -342,6 +350,12 @@ h6 {
   flex-direction: column;
 }
 
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .contact-form label {
   margin-bottom: 5px;
 }
@@ -403,7 +417,7 @@ iframe {
 .profile-picture-container {
   width: 150px;
   height: 150px;
-  border: 3px solid black;
+  border: 2px solid #242424;
   border-radius: 50%;
   overflow: hidden;
   margin: 10px auto 0 auto;
@@ -443,6 +457,12 @@ iframe {
 .small-image {
   width: 150px;
   height: auto;
+}
+
+.price-image {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
 /*--------------------------------------------------------------

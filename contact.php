@@ -107,11 +107,11 @@ if (isset($_SESSION['user_id'])) {
         <div class="contact-container">
           <div class="contact-info">
             <h3>Informations de contact</h3>
-            <p>Lieu : Maison Campus 39 Rue Firmin Oulès 81100 Castres</p>
-            <p>Discord : https://discord.com/invite/nTcpBuD</p>
-            <p>Email : fabmanager@innofab.fr</p>
-            <p>Téléphone : 07.49.10.60.31</p>
-            <p>Horaires : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
+            <p><strong>Lieu</strong> : Maison Campus 39 Rue Firmin Oulès 81100 Castres</p>
+            <p><strong>Discord</strong> : https://discord.com/invite/nTcpBuD</p>
+            <p><strong>Email</strong> : fabmanager@innofab.fr</p>
+            <p><strong>Téléphone</strong> : 07.49.10.60.31</p>
+            <p><strong>Horaires</strong> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
           </div>
           <div class="contact-form">
             <h3>Formulaire de contact</h3>
@@ -122,6 +122,10 @@ if (isset($_SESSION['user_id'])) {
               <input type="email" id="email" name="email" required>
               <label for="comments">Commentaires :</label>
               <textarea id="comments" name="comments" required></textarea>
+              <div class="form-checkbox ">
+                <label for="accept">J'accepte la divulgation de mes informations personnelles.</label>
+                <input type="checkbox" id="accept" name="accept" required>
+              </div>
               <button type="submit" class="btn-form">Envoyer</button>
             </form>
           </div>
