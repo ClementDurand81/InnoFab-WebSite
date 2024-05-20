@@ -33,15 +33,28 @@ foreach ($machinesData as $machine) {
 $dataLabelsMachinesJson = json_encode($dataLabelsMachines);
 $dataValuesMachinesJson = json_encode($dataValuesMachines);
 
+$stmt = $bdd->query("SELECT Titre, Vues_Blogs FROM blogs");
+$blogData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialiser les tableaux pour les étiquettes et les valeurs
+$dataLabelsBlogs = [];
+$dataValuesBlogs= [];
+
+// Remplir les tableaux avec les données récupérées
+foreach ($blogData as $blog) {
+  $dataLabelsBlogs[] = $blog['Titre'];
+  $dataValuesBlogs[] = $blog['Vues_Blogs'];
+}
+// Convertir les tableaux en JSON pour une utilisation dans JavaScript
+$dataLabelsBlogsJson = json_encode($dataLabelsBlogs);
+$dataValuesBlogsJson = json_encode($dataValuesBlogs);
+
 $nombre_de_connexions = 100;
 $nombre_d_inscrits = 50;
 $nombre_d_inscrits_en_attente = 20;
 
 $dataLabels = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 $dataValues = [12, 19, 3, 17, 7, 3, 22];
-
-$dataLabelsBlogs = ['Blog1', 'Blog 2', 'Blog 3', 'Blog 4', 'Blog 5'];
-$dataValuesBlogs = [100, 200, 150, 300, 250];
 
 ?>
 
