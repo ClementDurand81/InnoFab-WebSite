@@ -177,7 +177,7 @@ if (isset($_SESSION['user_id'])) {
       <p><strong>Modifications de la Politique de Confidentialité</strong></p>
       <p>Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Nous vous recommandons de consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
       <p><strong>Contactez-nous</strong></p>
-      <p>Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à <strong>fabmanager@innofab.fr</strong>.</p>
+      <p>Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à <strong>fabmanager.innofab@gmail.com</strong>.</p>
     </div>
   </section>
 
@@ -220,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>

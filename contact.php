@@ -109,7 +109,7 @@ if (isset($_SESSION['user_id'])) {
             <h3>Informations de contact</h3>
             <p><strong>Lieu</strong> : Maison Campus 39 Rue Firmin Oulès 81100 Castres</p>
             <p><strong>Discord</strong> : https://discord.com/invite/nTcpBuD</p>
-            <p><strong>Email</strong> : fabmanager@innofab.fr</p>
+            <p><strong>Email</strong> : fabmanager.innofab@gmail.com</p>
             <p><strong>Téléphone</strong> : 07.49.10.60.31</p>
             <p><strong>Horaires</strong> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
           </div>
@@ -174,7 +174,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>

@@ -110,31 +110,33 @@ if (isset($_SESSION['user_id'])) {
   <!-- Values Section -->
   <section id="values" class="values">
     <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
-      <img src="assets/img/camion.png" class="custom-image-camion mx-auto d-block">
-      <div class="mt-5">
-        <h3><p>Innofab, fablab de Castres-Mazamet propose pour la première année, son dispositif mobile autour de la
-        démarche de projet créatif et interdisciplinaire, de la fabrication par soi-même et du prototypage
-        rapide. Il s’agit de faire bénéficier aux élèves de collèges/lycées des outils et méthodes inaccessibles
-        habituellement.</p>
+      <h3>
+        <p>Innofab, fablab de Castres-Mazamet propose pour la première année, son dispositif mobile autour de la
+          démarche de projet créatif et interdisciplinaire, de la fabrication par soi-même et du prototypage
+          rapide. Il s’agit de faire bénéficier aux élèves de collèges/lycées des outils et méthodes inaccessibles
+          habituellement.</p>
+        <div style="float: right; margin-left: 20px;">
+          <img src="assets/img/camion.png" class="custom-image-camion">
+        </div>
         <p>Ce nouveau défi permet également de pouvoir encore mieux « aller vers » les personnes éloignées du
-        numérique grâce à des ateliers découvertes et de formations éducatives aux outils digitaux
-        (modélisation 3D, imprimantes 3D, électronique …) dans différents lieux : centres sociaux, mission
-        locale, programme de réussite éducative, EHPAD, hôpitaux, etc... Les objectifs sont nombreux : création
-        de liens sociaux et le partage de savoirs, rencontres intergénérationnelles, interculturelles.</p>
+          numérique grâce à des ateliers découvertes et de formations éducatives aux outils digitaux
+          (modélisation 3D, imprimantes 3D, électronique …) dans différents lieux : centres sociaux, mission
+          locale, programme de réussite éducative, EHPAD, hôpitaux, etc... Les objectifs sont nombreux : création
+          de liens sociaux et le partage de savoirs, rencontres intergénérationnelles, interculturelles.</p>
         <p>Pour la tournée 2024/2025, le but de l’Innomade est de déployer son fablab dans l'agglomération
-        Castres-Mazamet et plus largement le Tarn. Ce fablab mobile vise à augmenter les projets pédagogiques
-        en apportant des outils et des méthodes de création à l’aide de machines de prototypage rapide. Il rend
-        accessible des technologies numériques qui permettent de créer, fabriquer, prototyper, réparer ou
-        adapter. Il permet donc de réaliser des projets pluridisciplinaires. La démarche de projet créatif est au
-        cœur de ce dispositif.</p>
+          Castres-Mazamet et plus largement le Tarn. Ce fablab mobile vise à augmenter les projets pédagogiques
+          en apportant des outils et des méthodes de création à l’aide de machines de prototypage rapide. Il rend
+          accessible des technologies numériques qui permettent de créer, fabriquer, prototyper, réparer ou
+          adapter. Il permet donc de réaliser des projets pluridisciplinaires. La démarche de projet créatif est au
+          cœur de ce dispositif.</p>
         <p>La venue de l’Innomade est l’occasion de réaliser des ateliers/animations et de permettre ainsi à tous
-        d’expérimenter la fabrication numérique.</p>
+          d’expérimenter la fabrication numérique.</p>
         <p>(catalogue et fiche technique à venir, pour toute demande, envoyez-nous un mail :
-        <strong>fabmanager.innofab@gmail.com</strong>)</p>
+          <strong>fabmanager.innofab@gmail.com</strong>)</p>
         <p>Ce projet de “Fablab Itinérant” fait partie des lauréats de la deuxième édition du Budget Participatif du
-        département du Tarn. Grâce aux votes des Tarnais, le département a financé notre camion et
-        l'équipement des différentes machines de fabrication numérique.</p></h3>
-      </div>
+          département du Tarn. Grâce aux votes des Tarnais, le département a financé notre camion et
+          l'équipement des différentes machines de fabrication numérique.</p>
+      </h3>
     </div>
   </section>
 
@@ -177,7 +179,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>

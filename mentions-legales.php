@@ -121,7 +121,7 @@ if (isset($_SESSION['user_id'])) {
       <p>Innofab, SAS au capital de 5 000 Euros</p>
       <p>ayant son siège social à l’adresse suivante : Maison Campus 39 Rue Firmin Oulès 81100 CASTRES France,</p>
       <p>et immatriculée au numéro suivant : RCS de Toulouse 892 235 069</p>
-      <p>Adresse e-mail : <strong>fabmanager@innofab.fr</strong></p>
+      <p>Adresse e-mail : <strong>fabmanager.innofab@gmail.com</strong></p>
       <p>ci-après ” l’Éditeur “</p>
       <p><strong>Directeur de publication</strong></p>
       <p>Le Directeur de publication est : Pauline Béguin</p>
@@ -176,7 +176,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>

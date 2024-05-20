@@ -184,7 +184,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>
