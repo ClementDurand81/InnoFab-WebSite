@@ -12,9 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Vérifier si les champs sont vides
-    if (!empty($_POST['nom']) && !empty($_FILES['image']['name']) && !empty($_POST['description'])) {
+    if (!empty($_POST['nom']) && !empty($_FILES['image']['name']) && !empty($_POST['petiteDescription']) && !empty($_POST['description'])) {
         // Récupérer et nettoyer les données du formulaire
         $nom = cleanInput($_POST['nom']);
+        $petiteDescription = cleanInput($_POST['petiteDescription']);
         $description = cleanInput($_POST['description']);
 
         // Traitement de l'image
@@ -39,12 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($image_tmp, $image_destination)) {
                 try {
                     // Préparation de la requête SQL avec des paramètres nommés
-                    $sql = "INSERT INTO machines (Titre, Image, Description) VALUES (:nom, :image_destination, :description)";
+                    $sql = "INSERT INTO machines (Titre, Image, petiteDescription, Description) VALUES (:nom, :image_destination, :petiteDescription, :description)";
                     $stmt = $bdd->prepare($sql);
 
                     // Liaison des valeurs aux paramètres nommés
                     $stmt->bindParam(':nom', $nom);
                     $stmt->bindParam(':image_destination', $image_destination);
+                    $stmt->bindParam(':petiteDescription', $petiteDescription);
                     $stmt->bindParam(':description', $description);
 
                     // Exécution de la requête

@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Filtrer et échapper les données du formulaire
     $id_machine = filter_input(INPUT_POST, 'id_machine', FILTER_VALIDATE_INT);
     $nouveauTitre = filter_input(INPUT_POST, 'nouveauTitre', FILTER_SANITIZE_SPECIAL_CHARS);
+    $nouvellepetiteDescription = filter_input(INPUT_POST, 'nouvellepetiteDescription', FILTER_SANITIZE_SPECIAL_CHARS);
     $nouvelleDescription = filter_input(INPUT_POST, 'nouvelleDescription', FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Vérifier si un fichier a été téléchargé
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Effectuer les modifications dans la base de données
-    $sql = "UPDATE machines SET Titre = :titre, Description = :description";
+    $sql = "UPDATE machines SET Titre = :titre, petiteDescription = :petiteDescription,  Description = :description";
     // Ajouter la colonne de l'image uniquement si une nouvelle image a été téléchargée
     if ($nouvelleImage !== null) {
         $sql .= ", Image = :image";
@@ -50,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql .= " WHERE id_machines = :id";
     $stmt = $bdd->prepare($sql);
     $stmt->bindParam(":titre", $nouveauTitre);
+    $stmt->bindParam(":petiteDescription", $nouvellepetiteDescription);
     $stmt->bindParam(":description", $nouvelleDescription);
     // Lier le paramètre de l'image uniquement si une nouvelle image a été téléchargée
     if ($nouvelleImage !== null) {

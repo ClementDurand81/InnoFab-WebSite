@@ -42,7 +42,7 @@ function fermerPopup() {
 // Variable globale pour stocker l'image sélectionnée
 var nouvelleImage;
 
-function afficherFormulaireModifier(id, nom, image, description) {
+function afficherFormulaireModifier(id, nom, image, petiteDescription, description) {
   var form = document.createElement("form");
   form.innerHTML = `
       <div class="card">
@@ -59,6 +59,12 @@ function afficherFormulaireModifier(id, nom, image, description) {
               <div class="form-group">
                   <label for="nouvelleImage">Nouvelle Image:</label>
                   <input type="file" id="image" name="image" accept="image/*">
+              </div>
+              <div class="form-group">
+                  <label for="nouvellepetiteDescription">Nouvelle Petite Description:</label>
+                  <textarea class="form-control" id="nouvellepetiteDescription" name="petiteDescription" rows="4" required>${escapeHTML(
+                    petiteDescription
+                  )}</textarea>
               </div>
               <div class="form-group">
                   <label for="nouvelleDescription">Nouvelle Description:</label>
@@ -98,6 +104,10 @@ function sauvegarderModification() {
   var nouveauTitre = document.getElementById("titreMachine").value;
 
   // Récupérer la nouvelle description
+  var nouvellepetiteDescription = document.getElementById(
+    "nouvellepetiteDescription"
+  ).value;
+
   var nouvelleDescription = document.getElementById(
     "nouvelleDescription"
   ).value;
@@ -106,6 +116,7 @@ function sauvegarderModification() {
   var formData = new FormData();
   formData.append("id_machine", id_machine);
   formData.append("nouveauTitre", nouveauTitre);
+  formData.append("nouvellepetiteDescription", nouvellepetiteDescription);
   formData.append("nouvelleDescription", nouvelleDescription);
 
   // Vérifier si une image a été sélectionnée

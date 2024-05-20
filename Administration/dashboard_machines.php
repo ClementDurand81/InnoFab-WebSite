@@ -85,6 +85,10 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <input type="file" id="image" name="image" accept="image/*" required>
                 </div>
                 <div>
+                    <label for="petiteDescription">Petite Description :</label>
+                    <textarea id="petiteDescription" name="petiteDescription" rows="4" required></textarea>
+                </div>
+                <div>
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" rows="4" required></textarea>
                 </div>
@@ -100,6 +104,7 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID</th>
                         <th>Nom</th>
                         <th>Image</th>
+                        <th>Petite Description</th>
                         <th>Description</th>
                         <th>Action</th>
                     </tr>
@@ -110,8 +115,9 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($machine['id_machines']); ?></td>
                             <td><?php echo htmlspecialchars($machine['Titre']); ?></td>
                             <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($machine['petiteDescription']); ?></td>
                             <td><?php echo htmlspecialchars($machine['Description']); ?></td>
-                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($machine['id_machines']); ?>', '<?php echo htmlspecialchars($machine['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image']); ?>', '<?php echo htmlspecialchars($machine['Description']); ?>')">Modifier</button></td>
+                            <td><button class="btn btn-modifier" onclick="afficherFormulaireModifier('<?php echo htmlspecialchars($machine['id_machines']); ?>', '<?php echo htmlspecialchars($machine['Titre']); ?>', '<?php echo htmlspecialchars($machine['Image']); ?>', '<?php echo htmlspecialchars($machine['petiteDescription']); ?>', '<?php echo htmlspecialchars($machine['Description']); ?>')">Modifier</button></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -137,6 +143,7 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID</th>
                         <th>Nom</th>
                         <th>Image</th>
+                        <th>Petite Description</th>
                         <th>Description</th>
                         <th>Action</th>
                     </tr>
@@ -147,6 +154,7 @@ $machines = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($machine['id_machines']); ?></td>
                             <td><?php echo htmlspecialchars($machine['Titre']); ?></td>
                             <td><img src="../<?php echo htmlspecialchars($machine['Image']); ?>" alt="<?php echo htmlspecialchars($machine['Titre']); ?>" style="width: 100px;"></td>
+                            <td><?php echo htmlspecialchars($machine['petiteDescription']); ?></td>
                             <td><?php echo htmlspecialchars($machine['Description']); ?></td>
                             <td><button onclick="supprimerMachine(<?php echo htmlspecialchars($machine['id_machines']); ?>)">Supprimer</button></td>
                         </tr>
