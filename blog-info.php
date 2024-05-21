@@ -1,7 +1,7 @@
 <?php
 // Vérifie si l'utilisateur est connecté
 session_start();
-require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -19,38 +19,6 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
-
-// Vérifie si l'ID de la machine est défini dans l'URL
-if(isset($_GET['id'])) {
-  // Récupère l'ID de la machine depuis l'URL
-  $machineId = $_GET['id'];
-
-  // Prépare et exécute la requête pour récupérer les informations de la machine
-  $stmt = $bdd->prepare("SELECT * FROM Machines WHERE id_machines = :id");
-  $stmt->execute(array(':id' => $machineId));
-  $machine = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  // Vérifie si la machine existe dans la base de données
-  if($machine) {
-      // Affiche les informations de la machine
-      $titre = $machine['Titre'];
-      $description = $machine['Description'];
-      $image = $machine['Image'];
-      
-      // Incrémente le nombre de vues pour cette machine
-      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
-      $stmt->execute(array(':id' => $machineId));
-  } else {
-      // Redirige vers une page d'erreur si la machine n'existe pas
-      header("Location: erreur.php");
-      exit();
-  }
-} else {
-  // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
-  exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +71,7 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -115,9 +83,9 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -132,26 +100,36 @@ if(isset($_GET['id'])) {
   </header>
 
   <!-- Main Section -->
-
-    <!-- Main Section -->
-    <section class="background d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="p-4">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $titre; ?>" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-4">
-                        <h5 data-aos="fade-up" data-aos-delay="400"><?php echo $titre; ?></h5>
-                        <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-                        <h2 class="justified" data-aos="fade-up" data-aos-delay="600"><?php echo $description; ?></h2>
-                    </div>
-                </div>
-            </div>
+  <section class="background-custom-3 d-flex align-items-center">
+    <div class="container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Le titre du blog </h5>
+      <hr class="horizontal-line">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="p-4">
+            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
+          </div>
         </div>
-    </section>
+        <div class="col-md-6">
+          <div class="py-4">
+            <h2 class="justified" data-aos="fade-up" data-aos-delay="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="py-4">
+            <h2 class="justified" data-aos="fade-up" data-aos-delay="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="p-4">
+            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -172,6 +150,7 @@ if(isset($_GET['id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -179,7 +158,6 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">

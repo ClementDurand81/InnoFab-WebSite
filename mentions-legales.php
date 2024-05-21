@@ -1,7 +1,7 @@
 <?php
 // Vérifie si l'utilisateur est connecté
 session_start();
-require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -19,38 +19,6 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
-
-// Vérifie si l'ID de la machine est défini dans l'URL
-if(isset($_GET['id'])) {
-  // Récupère l'ID de la machine depuis l'URL
-  $machineId = $_GET['id'];
-
-  // Prépare et exécute la requête pour récupérer les informations de la machine
-  $stmt = $bdd->prepare("SELECT * FROM Machines WHERE id_machines = :id");
-  $stmt->execute(array(':id' => $machineId));
-  $machine = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  // Vérifie si la machine existe dans la base de données
-  if($machine) {
-      // Affiche les informations de la machine
-      $titre = $machine['Titre'];
-      $description = $machine['Description'];
-      $image = $machine['Image'];
-      
-      // Incrémente le nombre de vues pour cette machine
-      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
-      $stmt->execute(array(':id' => $machineId));
-  } else {
-      // Redirige vers une page d'erreur si la machine n'existe pas
-      header("Location: erreur.php");
-      exit();
-  }
-} else {
-  // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
-  exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +71,7 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -115,9 +83,9 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -131,27 +99,43 @@ if(isset($_GET['id'])) {
     </div>
   </header>
 
-  <!-- Main Section -->
+  <!-- Background Section  -->
+  <section class="background-custom-2 d-flex align-items-center">
+    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Mentions légales</h5>
+      <hr class="horizontal-line">
+    </div>
+  </section>
 
-    <!-- Main Section -->
-    <section class="background d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="p-4">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $titre; ?>" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-4">
-                        <h5 data-aos="fade-up" data-aos-delay="400"><?php echo $titre; ?></h5>
-                        <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-                        <h2 class="justified" data-aos="fade-up" data-aos-delay="600"><?php echo $description; ?></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Values Section -->
+  <section id="values" class="values">
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <h4><strong>innofab.fr</strong></h4>
+      <p>Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., la loi N° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, et conformément au règlement européen pour la protection des données personnelles 2016/679 du 27 avril 2016, il est porté à la connaissance des utilisateurs et visiteurs du site innofab.fr les présentes mentions légales.</p>
+      <p>Le site innofab.fr est accessible à l’adresse suivante : <strong><a href="https://innofab.fr" style="color:black;">https://innofab.fr</a></strong> (ci-après “le Site”). L’accès et l’utilisation du Site sont soumis aux présentes ” Mentions légales” détaillées ci-après ainsi qu’aux lois et/ou règlements applicables.</p>
+      <p>La connexion, l’utilisation et l’accès à ce Site impliquent l’acceptation intégrale et sans réserve de l’internaute de toutes les dispositions des présentes Mentions Légales.</p>
+      <p><strong>INFORMATIONS LÉGALES</strong></p>
+      <p>En vertu de l’Article 6 de la Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé dans cet article l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+      <p><strong>Editeur du site</strong></p>
+      <p>Le site innofab.fr est édité par :</p>
+      <p>Innofab, SAS au capital de 5 000 Euros</p>
+      <p>ayant son siège social à l’adresse suivante : Maison Campus 39 Rue Firmin Oulès 81100 CASTRES France,</p>
+      <p>et immatriculée au numéro suivant : RCS de Toulouse 892 235 069</p>
+      <p>Adresse e-mail : <strong>fabmanager.innofab@gmail.com</strong></p>
+      <p>ci-après ” l’Éditeur “</p>
+      <p><strong>Directeur de publication</strong></p>
+      <p>Le Directeur de publication est : Pauline Béguin</p>
+      <p>ci-après ” le Directeur de publication “</p>
+      <p><strong>Hébergeur du site</strong></p>
+      <p>Le site innofab.fr est hébergé par :</p>
+      <p>OVH SAS, RTE DE LA FERME MASSON ZI LES HUTTES – 59820 Gravelines – France</p>
+      <p>Le prestataire OVH est autorisé à stocker et traiter les données personnelles des personnes physiques conformément au « PRIVACY SHIELD » :</p>
+      <p><strong><a href="https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4" style="color:black;">https://www.privacyshield.gov/participant?id=a2zt0000000TNSNAA4</a></strong></p>
+      <p><strong>Propriété intellectuelle</strong></p>
+      <p>Tous les éléments du site <strong><a href="https://www.innofab.fr" style="color:black;">www.innofab.fr</a></strong> sont et restent la propriété intellectuelle et exclusive de Innofab SAS. Personne n’est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu’ils soient logiciels, visuels ou sonores.</p>
+      <p>Tout lien simple ou par hypertexte est strictement interdit sans un accord écrit auprès de Innofab SAS.</p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -172,6 +156,7 @@ if(isset($_GET['id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -179,7 +164,6 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -213,6 +197,11 @@ if(isset($_GET['id'])) {
 
   </footer>
 
+  <?php
+  if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
+    echo "<script>alert('Inscription réussie !');</script>";
+  }
+  ?>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

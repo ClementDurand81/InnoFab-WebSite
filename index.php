@@ -61,7 +61,7 @@ if (isset($_SESSION['user_id'])) {
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
           <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-          <li><a class="nav-link scrollto" href="contact.php">Camion</a></li>
+          <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
@@ -192,7 +192,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="row footer-bottom">
           <div class="col-auto align-self-center">
-            <p><i class="bi bi-envelope"></i> : fabmanager@innofab.fr</p>
+            <p><i class="bi bi-envelope"></i> : fabmanager.innofab@gmail.com</p>
           </div>
           <div class="col-auto align-self-center">
             <p><i class="bi bi-clock"></i> : Mercredi - Jeudi - Vendredi | 10h - 12h 14h - 18h</p>

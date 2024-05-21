@@ -1,7 +1,7 @@
 <?php
 // Vérifie si l'utilisateur est connecté
 session_start();
-require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -19,38 +19,6 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
-
-// Vérifie si l'ID de la machine est défini dans l'URL
-if(isset($_GET['id'])) {
-  // Récupère l'ID de la machine depuis l'URL
-  $machineId = $_GET['id'];
-
-  // Prépare et exécute la requête pour récupérer les informations de la machine
-  $stmt = $bdd->prepare("SELECT * FROM Machines WHERE id_machines = :id");
-  $stmt->execute(array(':id' => $machineId));
-  $machine = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  // Vérifie si la machine existe dans la base de données
-  if($machine) {
-      // Affiche les informations de la machine
-      $titre = $machine['Titre'];
-      $description = $machine['Description'];
-      $image = $machine['Image'];
-      
-      // Incrémente le nombre de vues pour cette machine
-      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
-      $stmt->execute(array(':id' => $machineId));
-  } else {
-      // Redirige vers une page d'erreur si la machine n'existe pas
-      header("Location: erreur.php");
-      exit();
-  }
-} else {
-  // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
-  exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +71,7 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -115,9 +83,9 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -131,27 +99,45 @@ if(isset($_GET['id'])) {
     </div>
   </header>
 
-  <!-- Main Section -->
+  <!-- Background Section  -->
+  <section class="background-custom-2 d-flex align-items-center">
+    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Conditions Générales d'Utilisation</h5>
+      <hr class="horizontal-line">
+    </div>
+  </section>
 
-    <!-- Main Section -->
-    <section class="background d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="p-4">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $titre; ?>" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-4">
-                        <h5 data-aos="fade-up" data-aos-delay="400"><?php echo $titre; ?></h5>
-                        <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-                        <h2 class="justified" data-aos="fade-up" data-aos-delay="600"><?php echo $description; ?></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Values Section -->
+  <section id="values" class="values">
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <h4><strong>Conditions Générales d'Utilisation (CGU) d'Innofab</strong></h4>
+      <p><strong>ARTICLE 1. ACCEPTATION DES CONDITIONS GÉNÉRALES D'UTILISATION</strong></p>
+      <p>Les CGU s’appliquent à tout commencement d’utilisation du Site par un Utilisateur.</p>
+      <p>En accédant et en utilisant le Site, l’Utilisateur accepte sans réserve ni condition les CGU et s’engage à les respecter en tous points.</p>
+      <p>La Société peut à tout moment modifier les termes des CGU. L’Utilisateur est expressément informé que les CGU applicables sont celles en vigueur, pour l’Utilisateur au jour de l’utilisation du Site.</p>
+      <p>La Société encourage les Utilisateurs à consulter régulièrement les CGU pour s’assurer d’être informés des modifications apportées.</p>
+      <p><strong>2. Traduction en Anglais</strong></p>
+      <p>Innofab propose une traduction complète du site en anglais pour faciliter l'accès aux informations et services pour les utilisateurs anglophones. Cette initiative comprend :</p>
+      <p>2.1. La traduction en anglais de toutes les pages du site, y compris la page d'accueil, la section machines, la page de réservation, les espaces utilisateurs, les mentions légales, et autres sections pertinentes.</p>
+      <p>2.2. Une traduction professionnelle de chaque bloc de texte, avec l’utilisation d’un vocabulaire adapté au secteur d'Innofab.</p>
+      <p>2.3. L'adaptation de l'interface utilisateur à la langue anglaise, avec un sélecteur de langue permettant aux utilisateurs de basculer entre la version française et anglaise.</p>
+      <p><strong>3. Page Machines</strong></p>
+      <p>La page présente les différentes machines disponibles chez Innofab avec des informations détaillées sur chacune d'entre elles.</p>
+      <p><strong>4. Site Responsive</strong></p>
+      <p>Le site offre une expérience utilisateur optimale sur ordinateur, tablette, et smartphone en proposant des formats adaptés.</p>
+      <p><strong>5. Réservations</strong></p>
+      <p>5.1. L’accès aux réservations est restreint aux adhérents.</p>
+      <p>5.2. Pour effectuer une réservation, l’adhérent doit d’abord remplir puis envoyer un formulaire de contact.</p>
+      <p>5.3. Chaque demande de réservation sera validée ou rejetée manuellement par un administrateur.</p>
+      <p><strong>6. Espaces Utilisateurs</strong></p>
+      <p>6.1. Le site comporte trois espaces utilisateurs distincts : visiteur, adhérent, administrateur.</p>
+      <p>6.2. Les accès aux espaces adhérent et administrateur sont sécurisés par une authentification par mot de passe.</p>
+      <p><strong>7. Base de Données</strong></p>
+      <p>Le site d’Innofab est lié à une base de données pour stocker les informations des adhérents, les réservations, et d'autres données pertinentes.</p>
+      <p><strong>8. Blog</strong></p>
+      <p>La page Blog, alimentée par l’administrateur du site, présente les actualités d'Innofab.</p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -172,6 +158,7 @@ if(isset($_GET['id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -179,7 +166,6 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -213,6 +199,11 @@ if(isset($_GET['id'])) {
 
   </footer>
 
+  <?php
+  if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
+    echo "<script>alert('Inscription réussie !');</script>";
+  }
+  ?>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

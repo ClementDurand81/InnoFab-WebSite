@@ -1,7 +1,7 @@
 <?php
 // Vérifie si l'utilisateur est connecté
 session_start();
-require_once('Serveur/bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
+require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin correct vers votre fichier de connexion
 
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
@@ -19,40 +19,7 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
-
-// Vérifie si l'ID de la machine est défini dans l'URL
-if(isset($_GET['id'])) {
-  // Récupère l'ID de la machine depuis l'URL
-  $machineId = $_GET['id'];
-
-  // Prépare et exécute la requête pour récupérer les informations de la machine
-  $stmt = $bdd->prepare("SELECT * FROM Machines WHERE id_machines = :id");
-  $stmt->execute(array(':id' => $machineId));
-  $machine = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  // Vérifie si la machine existe dans la base de données
-  if($machine) {
-      // Affiche les informations de la machine
-      $titre = $machine['Titre'];
-      $description = $machine['Description'];
-      $image = $machine['Image'];
-      
-      // Incrémente le nombre de vues pour cette machine
-      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
-      $stmt->execute(array(':id' => $machineId));
-  } else {
-      // Redirige vers une page d'erreur si la machine n'existe pas
-      header("Location: erreur.php");
-      exit();
-  }
-} else {
-  // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
-  exit();
-}
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,13 +64,13 @@ if(isset($_GET['id'])) {
           <li><a class="nav-link scrollto" href="index.php">Accueil</a></li>
           <li><a class="nav-link scrollto" href="nos-machines.php">Machines</a></li>
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
-          <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
+          <li><a class="nav-link scrollto active" href="tarifs.php">Tarifs</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
           <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
-            echo '<li><a class="nav-link scrollto" href="Administration/dashboard.php">Administration</a></li>';
+            echo '<li><a class="nav-link scrollto" href="dashboard.php">Administration</a></li>';
           }
           ?>
         </ul>
@@ -115,9 +82,9 @@ if(isset($_GET['id'])) {
           <?php
           // Si l'utilisateur est connecté, afficher le bouton "Mon compte" et "Déconnexion"
           if (isset($_SESSION['user_id'])) {
-            echo '<li><a class="nav-link scrollto" href="Serveur/profil.php">Mon compte</a></li>';
+            echo '<li><a class="nav-link scrollto" href="profil.php">Mon compte</a></li>';
             echo '<li class="separator"></li>';
-            echo '<li><a class="nav-link scrollto" href="Serveur/deconnexion.php">Déconnexion</a></li>';
+            echo '<li><a class="nav-link scrollto" href="deconnexion.php">Déconnexion</a></li>';
           } else {
             // Sinon, afficher les boutons "Se connecter" et "S'enregistrer"
             echo '<li><a class="nav-link scrollto" href="login.php">Connexion</a></li>';
@@ -132,26 +99,64 @@ if(isset($_GET['id'])) {
   </header>
 
   <!-- Main Section -->
-
-    <!-- Main Section -->
-    <section class="background d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="p-4">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $titre; ?>" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-4">
-                        <h5 data-aos="fade-up" data-aos-delay="400"><?php echo $titre; ?></h5>
-                        <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-                        <h2 class="justified" data-aos="fade-up" data-aos-delay="600"><?php echo $description; ?></h2>
-                    </div>
-                </div>
+  <section class="section-header section-header-card background d-flex align-items-center">
+    <div class="container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 text-center">Adhésion</h5>
+      <hr class="horizontal-line">
+      <div class="card-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/moins-de-25-ans.png" alt="Moins de 25 ans" class="price-image">
+            <h3 class="text-center">Moins de 25 ans</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+              <h7 class="text-center">10 € / </h7>
+              <h3 class="mt-2"> ans</h3>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/plus-de-25-ans.png" alt="Plus de 25 ans" class="price-image">
+            <h3 class="text-center">Plus de 25 ans</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+              <h7 class="text-center">20 € / </h7>
+              <h3 class="mt-2"> ans</h3>
+            </div>
+          </div>
+        </div> 
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center justify-content-center">
+            <img src="assets/img/famille.png" alt="Famille" class="price-image">
+            <h3 class="text-center">Famille</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+              <h7 class="text-center">30 € / </h7>
+              <h3 class="mt-2"> ans</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center">
+            <img src="assets/img/organismes.png" alt="Organismes" class="price-image">
+            <h3 class="text-center">Organisme</h3>
+            <hr class="horizontal-line-card">
+            <div class="d-flex align-items-center">
+                <h7 class="text-center">50 € / </h7>
+                <h3 class="mt-2"> ans</h3>
+            </div>
+            <p class=" text-center">Moins de 10 salariés</p>
+            <div class="d-flex align-items-center">
+                <h7 class="text-center">100 € / </h7>
+                <h3 class="mt-2"> ans</h3>
+            </div>
+            <p class=" text-center">Plus de 10 salariés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -172,6 +177,7 @@ if(isset($_GET['id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -179,7 +185,6 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">

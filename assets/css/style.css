@@ -13,20 +13,25 @@
   background-size: cover;
 }
 
-.background-custom{
+.background-custom {
   width: 100%;
   height: 50vh;
   background: url(../img/background.jpg) top center no-repeat;
   background-size: cover;
 }
 
-.background-custom3{
-  min-height: 100vh;
-  height: 100%;
+.background-custom-2 {
+  width: 100%;
+  height: 35vh;
   background: url(../img/background.jpg) top center no-repeat;
   background-size: cover;
 }
 
+.background-custom-3 {
+  min-height: 100vh;
+  background: url(../img/background.jpg) top center no-repeat;
+  background-size: cover;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -36,6 +41,14 @@ body {
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+a:hover {
+  color: #ff6b00;
+}
+
+p {
+  color:#000000;
 }
 
 .a-link:hover,
@@ -70,6 +83,21 @@ h5 {
   font-size: 50px;
   font-weight: 700;
   color: #ffffff;
+}
+
+h6 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 700;
+  color: #000000;
+}
+
+h7 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
 }
 
 .justified {
@@ -166,9 +194,14 @@ h5 {
   grid-gap: 20px;
 }
 
+.card-grid-price {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
 .card {
   background-color: white;
-  height: 55vh;
   border-radius: 30px;
 }
 
@@ -185,13 +218,18 @@ h5 {
   opacity: 1;
 }
 
+.horizontal-line-card {
+  border-top: 2px solid #000000;
+  width: 27vh;
+}
+
 .btn-card {
   padding: 15px 40px;
   color: #ffffff;
   background: #000000;
   border-radius: 10px;
   transition: 0.3s;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
 }
 
 .btn-card:hover {
@@ -224,17 +262,207 @@ h5 {
   margin: 0 auto;
 }
 
+.custom-image-camion {
+  border-radius: 15px;
+  width: 500px;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
 .custom-image-machine {
   border-radius: 15px;
   width: 400px;
   height: 400px;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
 }
 
 .custom-image-infos {
   border-radius: 15px;
   height: 300px;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.custom-image-infos-2 {
+  border-radius: 15px;
+  width: 400px;
+  height: auto;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.custom-image-infos-3 {
+  border-radius: 15px;
+  width: 250px;
+  height: auto;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.custom-image-infos:hover {
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.3);
+}
+
+.blog-container {
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.blog-container:hover {
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.3);
+}
+
+.contact-container {
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.contact-container:hover {
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info {
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #dfdfdf6c;
+}
+
+.contact-form {
+  width: 50%;
+  padding: 10px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+}
+
+.contact-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #999999;
+  border-radius: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.contact-form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #999999;
+  border-radius: 15px;
+  width: 100%;
+  height: 130px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.btn-form {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn-form:hover {
+  transition: 0.3;
+  color:#ffffff;
+  background-color: #ff6b00;
+}
+
+iframe {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.profile-container {
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  margin-bottom: 40px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-picture-container {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #242424;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px auto 0 auto;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vertical-line {
+  border-top: 2px solid black;
+  width: 100%;
+  margin: 15px auto 30px auto;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-buttons button {
+  margin-bottom: 15px; /* Augmentation de l'espace entre les boutons */
+}
+
+.blog-body {
+  width: 100%;
+  display: flex;
+}
+
+.image-container {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.small-image {
+  width: 150px;
+  height: auto;
+}
+
+.price-image {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -259,13 +487,24 @@ section {
 
 .section-header h3 {
   font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.section-header-title h3 {
+  text-align: justify;
+  padding-bottom: 40px;
+  font-size: 25px;
   padding: 10px;
   font-weight: 500;
   color: #000000;
 }
 
-.section-content {
-  margin-bottom: 100px; /* Ajustez cette valeur selon vos besoins */
+.section-header-card h3 {
+  text-align: justify;
+  font-size: 27px;
+  font-weight: 500;
+  color: #000000;
 }
 
 /*--------------------------------------------------------------
@@ -396,7 +635,7 @@ section {
 
 .box {
   padding: 50px;
-  box-shadow: 0 11px 30px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: 0.3s;
   height: 100%;
@@ -410,7 +649,7 @@ section {
 }
 
 .box:hover {
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 11px 30px 0px rgba(0, 0, 0, 0.2);
 }
 
 .box:hover img {
@@ -463,6 +702,7 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  color: #F2F2F2;
   background-color: #000000;
   text-align: center;
   line-height: 40px;
