@@ -19,38 +19,6 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
-
-// Vérifie si l'ID de la machine est défini dans l'URL
-if(isset($_GET['id'])) {
-  // Récupère l'ID de la machine depuis l'URL
-  $machineId = $_GET['id'];
-
-  // Prépare et exécute la requête pour récupérer les informations de la machine
-  $stmt = $bdd->prepare("SELECT * FROM Machines WHERE id_machines = :id");
-  $stmt->execute(array(':id' => $machineId));
-  $machine = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  // Vérifie si la machine existe dans la base de données
-  if($machine) {
-      // Affiche les informations de la machine
-      $titre = $machine['Titre'];
-      $description = $machine['Description'];
-      $image = $machine['Image'];
-      
-      // Incrémente le nombre de vues pour cette machine
-      $stmt = $bdd->prepare("UPDATE Machines SET Vues_Machine = Vues_Machine + 1 WHERE id_machines = :id");
-      $stmt->execute(array(':id' => $machineId));
-  } else {
-      // Redirige vers une page d'erreur si la machine n'existe pas
-      header("Location: erreur.php");
-      exit();
-  }
-} else {
-  // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
-  exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +67,7 @@ if(isset($_GET['id'])) {
           <li><a class="nav-link scrollto" href="blog.php">Blog</a></li>
           <li><a class="nav-link scrollto" href="tarifs.php">Tarifs</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-          <li><a class="nav-link scrollto" href="notre-camion.php">Camion</a></li>
+          <li><a class="nav-link scrollto active" href="notre-camion.php">Camion</a></li>
           <?php
           // Si l'utilisateur est un administrateur, afficher le bouton "Administration"
           if ($isAdmin) {
@@ -131,27 +99,46 @@ if(isset($_GET['id'])) {
     </div>
   </header>
 
-  <!-- Main Section -->
+  <!-- Background Section  -->
+  <section class="background-custom-2 d-flex align-items-center">
+    <div class="mt-5 container" data-aos="fade-up" data-aos-delay="400">
+      <h5 class="mt-5 pt-4 text-center">Notre camion</h5>
+      <hr class="horizontal-line">
+    </div>
+  </section>
 
-    <!-- Main Section -->
-    <section class="background d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="p-4">
-                        <img src="<?php echo $image; ?>" alt="<?php echo $titre; ?>" class="custom-image-machine" data-aos="zoom-out" data-aos-delay="200">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="py-4">
-                        <h5 data-aos="fade-up" data-aos-delay="400"><?php echo $titre; ?></h5>
-                        <hr class="horizontal-line" data-aos="fade-up" data-aos-delay="400">
-                        <h2 class="justified" data-aos="fade-up" data-aos-delay="600"><?php echo $description; ?></h2>
-                    </div>
-                </div>
-            </div>
+  <!-- Values Section -->
+  <section id="values" class="values">
+    <div class="container section-header" data-aos="fade-up" data-aos-delay="600">
+      <h3>
+        <p>Innofab, fablab de Castres-Mazamet propose pour la première année, son dispositif mobile autour de la
+          démarche de projet créatif et interdisciplinaire, de la fabrication par soi-même et du prototypage
+          rapide. Il s’agit de faire bénéficier aux élèves de collèges/lycées des outils et méthodes inaccessibles
+          habituellement.</p>
+        <div style="float: right; margin-left: 20px;">
+          <img src="assets/img/camion.png" class="custom-image-camion">
         </div>
-    </section>
+        <p>Ce nouveau défi permet également de pouvoir encore mieux « aller vers » les personnes éloignées du
+          numérique grâce à des ateliers découvertes et de formations éducatives aux outils digitaux
+          (modélisation 3D, imprimantes 3D, électronique …) dans différents lieux : centres sociaux, mission
+          locale, programme de réussite éducative, EHPAD, hôpitaux, etc... Les objectifs sont nombreux : création
+          de liens sociaux et le partage de savoirs, rencontres intergénérationnelles, interculturelles.</p>
+        <p>Pour la tournée 2024/2025, le but de l’Innomade est de déployer son fablab dans l'agglomération
+          Castres-Mazamet et plus largement le Tarn. Ce fablab mobile vise à augmenter les projets pédagogiques
+          en apportant des outils et des méthodes de création à l’aide de machines de prototypage rapide. Il rend
+          accessible des technologies numériques qui permettent de créer, fabriquer, prototyper, réparer ou
+          adapter. Il permet donc de réaliser des projets pluridisciplinaires. La démarche de projet créatif est au
+          cœur de ce dispositif.</p>
+        <p>La venue de l’Innomade est l’occasion de réaliser des ateliers/animations et de permettre ainsi à tous
+          d’expérimenter la fabrication numérique.</p>
+        <p>(catalogue et fiche technique à venir, pour toute demande, envoyez-nous un mail :
+          <strong>fabmanager.innofab@gmail.com</strong>)</p>
+        <p>Ce projet de “Fablab Itinérant” fait partie des lauréats de la deuxième édition du Budget Participatif du
+          département du Tarn. Grâce aux votes des Tarnais, le département a financé notre camion et
+          l'équipement des différentes machines de fabrication numérique.</p>
+      </h3>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer id="footer" class="footer">
@@ -172,6 +159,7 @@ if(isset($_GET['id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
+            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -179,7 +167,6 @@ if(isset($_GET['id'])) {
           <ul>
             <li><a href="tarifs.php">Nos tarifs</a></li>
             <li><a href="contact.php">Nous contacter</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -213,6 +200,11 @@ if(isset($_GET['id'])) {
 
   </footer>
 
+  <?php
+  if (isset($_GET['inscription']) && $_GET['inscription'] == 'reussie') {
+    echo "<script>alert('Inscription réussie !');</script>";
+  }
+  ?>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
