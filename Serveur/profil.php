@@ -6,10 +6,16 @@ require_once('bdd.php'); // Assurez-vous de remplacer 'bdd.php' avec le chemin c
 // Définit une valeur par défaut pour $isAdmin
 $isAdmin = false;
 
+if (!isset($_SESSION['user_id'])) {
+  // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+  header("Location: ../login.php");
+  exit;
+}
+
 if (isset($_SESSION['user_id'])) {
   // Récupérer le statut de l'utilisateur à partir de la base de données
   $userId = $_SESSION['user_id'];
-  $stmt = $bdd->prepare("SELECT Status FROM utilisateur WHERE id_utilisateur = :user_id");
+  $stmt = $bdd->prepare("SELECT * FROM utilisateur WHERE id_utilisateur = :user_id");
   $stmt->execute(array(':user_id' => $userId));
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -111,32 +117,29 @@ if (isset($_SESSION['user_id'])) {
               <div class="profile-picture-container">
                 <img src="/assets/img/profil.png" class="profile-picture">
               </div>
-              <h3 class="mt-4">Bonjour, Test</h3>
+              <h3 class="mt-4">Bonjour, <?php echo $user['Nom']; ?></h3> <!-- Affiche le nom de l'utilisateur -->
             </div>
             <div class="col-md-12 vertical-line"></div>
             <!-- Informations du profil -->
             <div class="col-md-6">
               <!-- Nom et prénom -->
               <div class="profile-info">
-                <h4><strong>Nom :</strong> Test</h4>
-                <h4><strong>Prénom :</strong> Test</h4>
+                <h4><strong>Nom :</strong> <?php echo $user['Nom']; ?></h4>
+                <h4><strong>Prénom :</strong> <?php echo $user['Prenom']; ?></h4>
               </div>
               <!-- Adresse mail -->
               <div class="profile-info">
-                <h4><strong>Email :</strong> email@test.com</h4>
+                <h4><strong>Email :</strong> <?php echo $user['email']; ?></h4>
               </div>
               <!-- Numéro de téléphone -->
               <div class="profile-info">
-                <h4><strong>Téléphone :</strong> +1234567890</h4>
+                <h4><strong>Téléphone :</strong> <?php echo $user['Telephone']; ?></h4>
               </div>
             </div>
             <!-- Boutons d'action -->
             <div class="col-md-6">
               <div class="action-buttons">
-                <button class="btn-form">Ajouter une image</button>
-                <button class="btn-form">Modifier l'adresse mail</button>
-                <button class="btn-form">Modifier le numéro de téléphone</button>
-                <button class="btn-form">Supprimer mon compte</button>
+                <button class="btn-form" onclick="confirmerSuppression()">Supprimer mon compte</button>
               </div>
             </div>
           </div>
@@ -152,34 +155,34 @@ if (isset($_SESSION['user_id'])) {
         <div class="col-lg-5 col-md-12 footer-info">
           <p>Innofab est financé par l'Union Européenne dans le cadre du Fond feder</p>
           <a class="logo d-flex align-items-center justify-content-center">
-            <img src="assets/img/ue.jpg" alt="">
-            <img src="assets/img/occitanie.png" alt="">
-            <img src="assets/img/europesengage.jpg" alt="">
-            <img src="assets/img/mit.png" alt="">
+            <img src="/assets/img/ue.jpg" alt="">
+            <img src="/assets/img/occitanie.png" alt="">
+            <img src="/assets/img/europesengage.jpg" alt="">
+            <img src="/assets/img/mit.png" alt="">
           </a>
         </div>
         <div class="col-2 footer-links">
           <h4>Publications</h4>
           <ul>
-            <li><a href="nos-machines.php">Nos machines</a></li>
-            <li><a href="notre-camion.php">Notre camion</a></li>
-            <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
+            <li><a href="/nos-machines.php">Nos machines</a></li>
+            <li><a href="/notre-camion.php">Notre camion</a></li>
+            <li><a href="/blog.php">Blog</a></li>
+            <li><a href="/membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
           <h4>Innofab</h4>
           <ul>
-            <li><a href="tarifs.php">Nos tarifs</a></li>
-            <li><a href="contact.php">Nous contacter</a></li>
+            <li><a href="/tarifs.php">Nos tarifs</a></li>
+            <li><a href="/contact.php">Nous contacter</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
           <h4>Services</h4>
           <ul>
-            <li><a href="cgu.php">CGU</a></li>
-            <li><a href="mentions-legales.php">Mentions légales</a></li>
-            <li><a href="politique-de-confidentialite.php">Politique de confidentialité</a></li>
+            <li><a href="/cgu.php">CGU</a></li>
+            <li><a href="/mentions-legales.php">Mentions légales</a></li>
+            <li><a href="/politique-de-confidentialite.php">Politique de confidentialité</a></li>
           </ul>
         </div>
         <div class="row footer-bottom">
@@ -211,6 +214,13 @@ if (isset($_SESSION['user_id'])) {
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
 
+  <script>
+    function confirmerSuppression() {
+      if (confirm("Êtes-vous sûr de vouloir supprimer définitivement votre compte ? Cette action est irréversible.")) {
+        window.location.href = "supprimercompte.php";
+      }
+    }
+  </script>
 </body>
 
 </html>
