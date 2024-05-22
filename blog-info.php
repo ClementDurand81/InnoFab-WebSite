@@ -28,6 +28,28 @@ $stmt = $bdd->prepare("SELECT * FROM blogs WHERE id_blog = :id");
 $stmt->execute(array(':id' => $articleId));
 $article = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// Vérifie si l'ID de la machine est défini dans l'URL
+if(isset($_GET['id'])) {
+  // Récupère l'ID de la machine depuis l'URL
+  $idblog = $_GET['id'];
+
+  // Prépare et exécute la requête pour récupérer les informations de la machine
+  $stmt = $bdd->prepare("SELECT * FROM blogs WHERE id_blog = :id");
+  $stmt->execute(array(':id' => $idblog));
+  $blog = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // Vérifie si la machine existe dans la base de données
+  if($blog) {
+      // Incrémente le nombre de vues pour cette machine
+      $stmt = $bdd->prepare("UPDATE blogs SET Vues_Blogs = Vues_Blogs + 1 WHERE id_blog = :id");
+      $stmt->execute(array(':id' => $idblog));
+  } else {
+      // Redirige vers une page d'erreur si la machine n'existe pas
+      header("Location: erreur.php");
+      exit();
+  }
+}
+
 if (!$article) {
   // Rediriger vers la page blog si l'article n'existe pas
   header('Location: blog.php');
