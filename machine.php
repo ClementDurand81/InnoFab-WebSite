@@ -47,7 +47,7 @@ if(isset($_GET['id'])) {
   }
 } else {
   // Redirige vers une page d'erreur si l'ID de la machine n'est pas spécifié dans l'URL
-  header("Location: erreur.php");
+  header("Location: nos-machine.php");
   exit();
 }
 

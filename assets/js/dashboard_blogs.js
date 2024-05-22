@@ -156,6 +156,10 @@ function sauvegarderModification() {
     "nouvelleDescription2"
   ).value;
 
+  nouvellepetiteDescription = nouvellepetiteDescription.replace(/\r?\n/g, '\n');
+  nouvelleDescription1 = nouvelleDescription1.replace(/\r?\n/g, '\n');
+  nouvelleDescription2 = nouvelleDescription2.replace(/\r?\n/g, '\n');
+  
   // Créer un objet FormData et ajouter les données du formulaire
   var formData = new FormData();
   formData.append("id_blog", id_blog);
@@ -216,9 +220,9 @@ s;
 // Fonction pour échapper les caractères HTML
 function escapeHTML(html) {
   return html
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(/&/g, "")
+    .replace(/</g, "")
+    .replace(/>/g, "")
+    .replace(/"/g, "")
+    .replace(/'/g, "");
 }

@@ -100,62 +100,31 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </header>
 
+  
   <!-- Main Section -->
   <section class="section-header section-header-title background-custom-3 d-flex align-items-center">
     <div class="container" data-aos="fade-up" data-aos-delay="400">
       <h5 class="mt-5 pt-4 text-center">Nos machines</h5>
       <hr class="horizontal-line">
       <div class="card-grid mt-5" data-aos="fade-up" data-aos-delay="600">
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/plotter-versastudio-bn-20.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Plotter VersaStudio BN-20</h3>
-            <p class="mb-5">Pour imprimer et découper sur différents types de papier.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
+        <?php foreach ($machines as $machine): ?>
+          <div class="card">
+            <div class="card-body d-flex flex-column align-items-center">
+              <img src="<?php echo htmlspecialchars($machine['Image']); ?>" alt="" class="custom-image">
+              <h3 class="p-2 text-center"><?php echo htmlspecialchars($machine['Titre']); ?></h3>
+              <p class="mb-5"><?php echo htmlspecialchars($machine['petiteDescription']); ?></p>
+              <div class="mt-auto mb-4">
+                <a href="machine.php?id=<?php echo $machine['id_machines']; ?>" class="btn-card">
+                  <span>En savoir plus</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-raise3d-n2-plus.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Raise3D N2 Plus</h3>
-            <p class="mb-5">Pour imprimer vos objets en 3 dimensions en grand format.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <!-- Image -->
-            <img src="assets/img/imprimante-3d-zortrax-m200.jpg" alt="" class="custom-image">
-            <!-- Titre -->
-            <h3 class="p-2 text-center">Imprimante 3D Zortrax M200</h3>
-            <p class="mb-5">Pour imprimer vos objets en 3 dimensions.</p>
-            <!-- Bouton -->
-            <div class="mt-auto mb-4">
-              <a href="machine.php" class="btn-card">
-                <span>En savoir plus</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
-
-
+  
   <!-- Footer -->
   <footer id="footer" class="footer">
     <div class="container">

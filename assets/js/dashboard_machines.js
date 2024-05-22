@@ -169,12 +169,12 @@ function supprimerMachine(machineID) {
 
 function escapeHTML(html) {
   return html
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;")
-    .replace(/\n/g, "&#10;") // Échapper les nouvelles lignes
-    .replace(/\r/g, "&#13;")
+    .replace(/&/g, "")
+    .replace(/</g, "")
+    .replace(/>/g, "")
+    .replace(/"/g, "")
+    .replace(/'/g, "")
+    .replace(/\n/g, "") // Échapper les nouvelles lignes
+    .replace(/\r/g, "")
     .replace(/\n/g, "<br>"); // Convertir les sauts de ligne en balises <br>
   }

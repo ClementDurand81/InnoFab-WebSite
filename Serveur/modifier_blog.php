@@ -6,7 +6,8 @@ require_once "bdd.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-function logMessage($message) {
+function logMessage($message)
+{
     error_log($message);
 }
 
@@ -20,10 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouvelleDescription1 = filter_input(INPUT_POST, 'nouvelleDescription1', FILTER_SANITIZE_SPECIAL_CHARS);
     $nouvelleDescription2 = filter_input(INPUT_POST, 'nouvelleDescription2', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    // Remplacer les retours à la ligne par des espaces dans les descriptions
-    $nouvellepetiteDescription = preg_replace("/\r?\n/", " ", $nouvellepetiteDescription);
-    $nouvelleDescription1 = preg_replace("/\r?\n/", " ", $nouvelleDescription1);
-    $nouvelleDescription2 = preg_replace("/\r?\n/", " ", $nouvelleDescription2);
+    // Remplacer les retours à la ligne par des sauts de ligne standard dans les descriptions
+    $nouvellepetiteDescription = preg_replace("/\r?\n/", "\n", $nouvellepetiteDescription);
+    $nouvelleDescription1 = preg_replace("/\r?\n/", "\n", $nouvelleDescription1);
+    $nouvelleDescription2 = preg_replace("/\r?\n/", "\n", $nouvelleDescription2);
+
+    $nouvellepetiteDescription = str_replace('&#13;&#10;', '', $nouvellepetiteDescription);
+    $nouvelleDescription1 = str_replace('&#13;&#10;', '', $nouvelleDescription1);
+    $nouvelleDescription2 = str_replace('&#13;&#10;', '', $nouvelleDescription2);
 
     // Vérifier et traiter les fichiers téléchargés
     $nouvelleImage1 = null;
@@ -107,4 +112,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     http_response_code(400);
     echo json_encode(array("message" => "Requête invalide"));
 }
-?>

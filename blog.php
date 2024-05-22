@@ -19,46 +19,35 @@ if (isset($_SESSION['user_id'])) {
     $_SESSION['is_admin'] = $isAdmin;
   }
 }
+
+// Récupérer les articles de blog depuis la base de données
+$stmt = $bdd->query("SELECT * FROM blogs");
+$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Innofab</title>
-
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Nunito|Poppins" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
-
 <body>
 
   <!-- Header -->
   <header id="header" class="header fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
-
-      <!-- Logo à gauche -->
       <div class="logo">
         <a href="index.php" class="d-flex align-items-center">
           <img src="assets/img/logo.png" alt="">
         </a>
       </div>
-
-      <!-- Boutons au milieu -->
       <nav class="navbar">
         <ul class="d-flex justify-content-center">
           <li><a class="nav-link scrollto" href="index.php">Accueil</a></li>
@@ -75,8 +64,6 @@ if (isset($_SESSION['user_id'])) {
           ?>
         </ul>
       </nav>
-
-      <!-- Login à droite -->
       <nav class="navbar">
         <ul class="d-flex align-items-center justify-content-end">
           <?php
@@ -94,7 +81,6 @@ if (isset($_SESSION['user_id'])) {
           ?>
         </ul>
       </nav>
-
     </div>
   </header>
 
@@ -104,23 +90,21 @@ if (isset($_SESSION['user_id'])) {
       <h5 class="mt-5 pt-4 text-center">Blog</h5>
       <hr class="horizontal-line">
       <div class="blog-grid-price mt-5" data-aos="fade-up" data-aos-delay="600">
-        <a href="blog-info.php">
-          <div class="blog-container">
-            <div class="blog-body d-flex align-items-center">
-              <!-- Image à gauche -->
-              <div class="image-container">
-                <img src="assets/img/enseignement-superieur.jpg" class="small-image">
-              </div>
-              <!-- Contenu à droite -->
-              <div>
-                <!-- Titre -->
-                <h3 class="text-left">Titre</h3>
-                <!-- Paragraphe -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <?php foreach ($articles as $article) : ?>
+          <a href="blog-info.php?id=<?= $article['id_blog'] ?>">
+            <div class="blog-container">
+              <div class="blog-body d-flex align-items-center">
+                <div class="image-container">
+                  <img src="<?= $article['Image_1'] ?>" class="small-image">
+                </div>
+                <div>
+                  <h3 class="text-left"><?= htmlspecialchars($article['Titre']) ?></h3>
+                  <p><?= htmlspecialchars($article['petiteDescription']) ?></p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -144,7 +128,6 @@ if (isset($_SESSION['user_id'])) {
             <li><a href="nos-machines.php">Nos machines</a></li>
             <li><a href="notre-camion.php">Notre camion</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="membres-fondateurs.php">Membres fondateurs</a></li>
           </ul>
         </div>
         <div class="col-2 footer-links">
@@ -182,7 +165,6 @@ if (isset($_SESSION['user_id'])) {
         </div>
       </div>
     </div>
-
   </footer>
 
   <!-- Vendor JS Files -->
@@ -193,5 +175,4 @@ if (isset($_SESSION['user_id'])) {
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
